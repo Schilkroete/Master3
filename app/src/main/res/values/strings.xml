@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">Master3</string>
+
+    // Labels
+    <string name="lable_dashboard">Dashboard</string>
+    <string name="lable_hinzufuegenPt">Patienten hinzufügen</string>
+    <string name="lable_suchePt">Suche nach Patientenakte</string>
+    <string name="lable_sucheUebung">Suche Übung</string>
+
+    // TextViews
+    <string name="tv_vorname">Vorname:<font fgcolor="red">*</font></string>
+    <string name="tv_nachname">Nachname:<font fgcolor="red">*</font></string>
+    <string name="tv_pflichtfeld" color="#ff0000">*</string>
+    <string name="tv_geburtsdatum">Geburtsdatum:</string>
+    <string name="tv_alter">Alter:</string>
+    <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
+    <string name="tv_waehleGeburtstag">+</string>
+
+    // EditText
+    <string name="et_medikamente">Medikamente:<font fgcolor="red">*</font></string>
+    <string name="et_beschwerden">Beschwerden:<font fgcolor="red">*</font></string>
+    <string name="et_notizen">Notizen:</string>
+
+    // Buttons
+    <string name="btn_new_pt">Patienten hinzufügen</string>
+    <string name="btn_change_pt">Patienten auswählen</string>
+    <string name="btn_settings">Einstellungen</string>
+    <string name="btn_uebungen">Übungen</string>
+
 </resources>
