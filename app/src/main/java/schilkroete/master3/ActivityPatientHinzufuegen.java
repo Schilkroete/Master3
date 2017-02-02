@@ -20,27 +20,26 @@ public class ActivityPatientHinzufuegen extends Activity implements View.OnClick
 
     // TODO - Sollte es später Probleme bei den SharedPreferences geben: Zugriffsmodifizierer ändern, könnte helfen
 
-    private Button btnStart;
-    private TextView aktuellesDatum, result, versteckePflichtfeld;
-    private TextView geburtsdatum = null;
+    private TextView resultAlter;
+    private TextView versteckePflichtfeld;
+    private TextView geburtsdatum;
     static final int DATE_START_DIALOG_ID = 0;
     private int startJahr = 1975;
     private int startMonat = 6;
     private int startTag = 15;
-    private AgeCalculation alter = null;
+    private AgeCalculation berechneAlter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_patienten_hinzufuegen);
 
-        alter = new AgeCalculation();
-        // Zeigt heutiges Datum an
-        aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
-        aktuellesDatum.setText(alter.getCurrentDate());
+        berechneAlter = new AgeCalculation();
+        TextView aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
+        aktuellesDatum.setText(berechneAlter.getCurrentDate());
         geburtsdatum = (TextView) findViewById(R.id.tv_geburtsdatum);
-        result = (TextView) findViewById(R.id.tv_alter);
-        btnStart = (Button) findViewById(R.id.tv_waehleGeburtstag);
+        resultAlter = (TextView) findViewById(R.id.tv_alter);
+        Button btnStart = (Button) findViewById(R.id.tv_waehleGeburtstag);
         btnStart.setOnClickListener(this);
         versteckePflichtfeld = (TextView) findViewById(R.id.tv_pflichtfeld);
     }
@@ -49,24 +48,19 @@ public class ActivityPatientHinzufuegen extends Activity implements View.OnClick
     protected Dialog onCreateDialog(int id){
         switch (id){
             case DATE_START_DIALOG_ID:
-                return new DatePickerDialog(this,
-                        mDateSetListener,
-                        startJahr, startMonat, startTag);
+                return new DatePickerDialog(this, mDateSetListener, startJahr, startMonat, startTag);
         }
         return null;
     }
 
-    private DatePickerDialog.OnDateSetListener mDateSetListener
-            = new DatePickerDialog.OnDateSetListener () {
-        public void onDateSet(DatePicker view, int selectedYear,
-                              int selectedMonth, int selectedDay) {
+    private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener () {
+        public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
             startJahr = selectedYear;
             startMonat = selectedMonth;
             startTag = selectedDay;
-            alter.setDateOfBirth(startJahr, startMonat, startTag);
-            geburtsdatum.setText(selectedDay + "." + (startMonat + 1) +
-                    "." + startJahr);
-            calculateAge();
+            berechneAlter.setDateOfBirth(startJahr, startMonat, startTag);
+            geburtsdatum.setText(selectedDay + "." + (startMonat + 1) + "." + startJahr);
+            berechneAlter();
         }
     };
 
@@ -80,14 +74,17 @@ public class ActivityPatientHinzufuegen extends Activity implements View.OnClick
         }
     }
 
-    private void calculateAge() {
-        alter.calculateYear();
-        alter.calculateMonth();
-        alter.calculateDay();
-        Toast.makeText(getBaseContext(), "Das Alter entspricht: " + alter.getResult(),
+    private void berechneAlter() {
+        berechneAlter.calculateYear();
+        berechneAlter.calculateMonth();
+        berechneAlter.calculateDay();
+        Toast.makeText(getBaseContext(), "Das Alter entspricht: " + berechneAlter.getResult(),
                 Toast.LENGTH_SHORT).show();
-        result.setText("Alter: " + alter.getResult());
+        resultAlter.setText("Alter: " + berechneAlter.getResult());
 
+        if (resultAlter != null){
+            versteckePflichtfeld.setVisibility(View.INVISIBLE);
+        }
     }
 
 }
