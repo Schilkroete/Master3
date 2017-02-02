@@ -1,6 +1,7 @@
 package schilkroete.master3;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -8,7 +9,6 @@ import android.widget.ImageButton;
 public class ActivityDashboard extends Activity {
 
     ImageButton btn;
-    boolean istGeklickt = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,21 +16,21 @@ public class ActivityDashboard extends Activity {
         setContentView(R.layout.layout_dashboard);
 
 
-        // TODO Dies ist ein Test
-        btn = (ImageButton) findViewById(R.id.btnSettings);
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn = (ImageButton) findViewById(R.id.btn_Patienten_Hinzufuegen);
+        btn.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
-                if (istGeklickt) {
-                    btn.setImageResource(R.drawable.change);
-                } else {
-                    btn.setImageResource(R.drawable.settings);
-                }
-                istGeklickt =! istGeklickt;
+            public void onClick (View n) {
+                Intent suchePt = new Intent(ActivityDashboard.this,
+                        ActivityPatientHinzufuegen.class);
+                startActivity(suchePt);
             }
         });
 
+
+
     }
+
+
 
 
 }

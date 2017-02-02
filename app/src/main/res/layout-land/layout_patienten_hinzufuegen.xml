@@ -1,0 +1,189 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_weight="1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <EditText
+            android:id="@+id/tv_nachname"
+            android:hint="@string/tv_nachname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="30sp"
+            android:inputType="textPersonName"
+            android:layout_margin="8dp"/>
+        <EditText
+            android:id="@+id/tv_vorname"
+            android:hint="@string/tv_vorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textSize="30sp"
+            android:inputType="textPersonName"
+            android:layout_margin="8dp"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:hint="@string/tv_waehleGeburtstag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:id="@+id/tv_waehleGeburtstag"
+                android:layout_margin="8dp"/>
+            <TextView
+                android:text="@string/tv_pflichtfeld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:textColor="#ff0000"
+                android:id="@+id/tv_pflichtfeld"
+                android:layout_alignTop="@+id/tv_waehleGeburtstag"
+                android:layout_toEndOf="@+id/tv_waehleGeburtstag"
+                android:layout_toRightOf="@+id/tv_waehleGeburtstag"/>
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/tv_geburtsdatum"
+            android:hint="@string/tv_geburtsdatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:textSize="30sp"
+            android:layout_margin="8dp"/>
+        <TextView
+            android:id="@+id/tv_alter"
+            android:hint="@string/tv_alter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:textSize="30sp"
+            android:layout_margin="8dp"/>
+        <TextView
+            android:id="@+id/tv_aktuellesDatum"
+            android:hint="@string/tv_aktuellesDatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="30"
+            android:textSize="24sp"
+            android:visibility="invisible"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"/>
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/holo_blue_dark">
+        <EditText
+            android:hint="@string/et_notizen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:id="@+id/et_notizen"
+            android:textSize="30sp"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="@android:color/black"/>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="@android:color/white"/>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="3dp"
+    android:background="@android:color/black"/>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:layout_weight="1"
+    android:background="@android:color/holo_green_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <EditText
+            android:hint="@string/et_beschwerden"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:id="@+id/et_beschwerden"
+            android:textSize="30sp"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"/>
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"/>
+    <View
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:background="@android:color/holo_purple">
+        <EditText
+            android:hint="@string/et_medikamente"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/et_medic"
+            android:textSize="30sp"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+</LinearLayout>

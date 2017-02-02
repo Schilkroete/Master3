@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="schilkroete.master3">
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="schilkroete.master3">
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ActivityPatientHinzufuegen"
+            android:label="@string/lable_hinzufuegenPt">
+        </activity>
+
+
     </application>
 
 </manifest>

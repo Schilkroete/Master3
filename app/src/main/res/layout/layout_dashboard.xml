@@ -25,7 +25,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnNewPt"
+                android:id="@+id/btn_Patienten_Hinzufuegen"
                 android:src="@drawable/add"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
@@ -37,7 +37,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnChangePt"
+                android:id="@+id/btn_Patienten_Suche"
                 android:src="@drawable/change"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
@@ -57,7 +57,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnUebungen"
+                android:id="@+id/btn_Uebungen"
                 android:src="@drawable/training"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
@@ -69,7 +69,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnSettings"
+                android:id="@+id/btn_Einstellungen"
                 android:src="@drawable/settings"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"
