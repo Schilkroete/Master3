@@ -26,8 +26,7 @@ import java.util.List;
     * in der die Datenbank-Objekte abspeichern werden.
     * Dadurch hält die ShoppingMemoDataSource-Klasse die Verbindung zu Datenbank aufrecht.
     */
-
-public class ShoppingMemoDataSource { //DatenquellePatienten
+public class ShoppingMemoDataSource {
 
     private static final String LOG_TAG = ShoppingMemoDataSource.class.getSimpleName();
     // Membervariablen

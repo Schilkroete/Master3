@@ -11,7 +11,7 @@ package schilkroete.master3;
 * Mit den Objekten im Code kann dann weitergearbeitet werden und
 * ihr Inhalt kann bequem in einer Liste, bspw. mit Hilfe eines ListViews, ausgeben werden.
 */
-public class ShoppingMemo { ////Patientenakte
+public class ShoppingMemo {
 
     private String product;
     private int quantity;

@@ -24,15 +24,16 @@ import android.widget.TextView;
 public class ActivityPatientenHinzufuegen extends Activity implements View.OnClickListener {
 
     private static final String TAG = ActivityPatientenHinzufuegen.class.getSimpleName();
-/*
+
     public EditText et_vorname;
-    public EditText et_nachname;*/
+    public EditText et_nachname;
     public EditText et_notizen;
     public EditText et_medikamente;
     public EditText et_beschwerden;
     public TextView tv_pflichtfeld;
     public TextView tv_geburtsdatum;
     public TextView tv_aktuellesDatum;
+    public TextView tv_alter;
     public Button btn_waehleGeburtstag;
 
     private int alter;
@@ -43,6 +44,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     public int startMonatImDialog = 6;
     public int startTagImDialog = 15;
 
+    private PatientenakteDatenquelle datenquelle;
 
 
     @Override
@@ -50,14 +52,15 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_patienten_hinzufuegen);
 
-       /* et_vorname = (EditText) findViewById(R.id.et_vorname);
-        et_nachname = (EditText) findViewById(R.id.et_nachname);*/
+        et_vorname = (EditText) findViewById(R.id.et_vorname);
+        et_nachname = (EditText) findViewById(R.id.et_nachname);
         et_notizen = (EditText) findViewById(R.id.et_notizen);
         et_medikamente = (EditText) findViewById(R.id.et_medikamente);
         et_beschwerden = (EditText) findViewById(R.id.et_beschwerden);
         tv_aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
         tv_geburtsdatum = (TextView) findViewById(R.id.tv_geburtsdatum);
         tv_pflichtfeld = (TextView) findViewById(R.id.tv_pflichtfeld);
+        tv_alter = (TextView) findViewById(R.id.tv_alter);
         btn_waehleGeburtstag = (Button) findViewById(R.id.btn_waehleGeburtstag);
 
         ausgewahltesDatum = new AgeCalculation();
@@ -65,56 +68,38 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
 
         btn_waehleGeburtstag.setOnClickListener(this);
 
-  /*      mHelper = new DatenbankManagerPatienten(this);*/
+        datenquelle = new PatientenakteDatenquelle(this);
 
     }
 
 
 
-    /*@Override
-    protected void onPause() {
-        super.onPause();
-        // Pause wird nie betreten bevor onResume durchlaufen wurde, also kann ich mir eine
-        // Überprüfung, ob die Datenbank offen ist, sparen
-        mDatenbank.schliesseDatenbank();
-        Toast.makeText(this, "Datenbank geschlossen", Toast.LENGTH_SHORT).show();
-    }
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        // zum öffnen der Datenbank
-        mDatenbank = mHelper.getReadableDatabase();
-        Toast.makeText(this, "Datenbank geöffnet", Toast.LENGTH_SHORT).show();
 
-        ladePatienten();
-    }
 
-    private void ladePatienten()  {
-        Cursor patientenCursor = mDatenbank.rawQuery(DatenbankManagerPatienten.PATIENTENAKTE_SELECT_RAW, null);
-        startManagingCursor(patientenCursor);
 
-        SimpleCursorAdapter patientenAdapter = new SimpleCursorAdapter(
-                this,
-                android.R.layout.simple_list_item_1,
-                patientenCursor,
-                new String[]{"vorname"},
-                new int[] {android.R.id.text1}
-        );
-        setListAdapter(patientenAdapter);
-    }
 
-    public void onButtonClick(View view) {
-        String text = et_vorname.getText().toString();
 
-        ContentValues werte = new ContentValues();
-        werte.put("vorname", text);
-        mDatenbank.insert("patienten", null, werte);
-        et_vorname.setText("");
-        ladePatienten();
-    }
-*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -133,6 +118,8 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         }
         return null;
     }
+
+
     /**
      * Öffnet das Dialogfenster beim Klicken des Plus-Buttons
      * @param view
@@ -147,6 +134,8 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 break;
         }
     }
+
+
     /**
      * Nach Berechnung des Alter wird das Geburtdatum und das Alter für den Anwender sichtbar angezeit
      */
@@ -156,13 +145,17 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
             ausgewahltesDatum.setDateOfBirth(selectedYear, selectedMonth, selectedDay);
             berechneAlter();
             tv_geburtsdatum.setText(selectedDay + "." + (startMonatImDialog + 1) + "." +
-                    startJahrImDialog + " (" + alter + ")");
+                    startJahrImDialog);
+
+            tv_alter.setText(ausgewahltesDatum.getResult());
 
             if (tv_geburtsdatum != null){
                 tv_pflichtfeld.setVisibility(View.INVISIBLE);
             }
         }
     };
+
+
     /**
      * Berechung des Alters über die ausgewählen Werte aus dem Dialogfenster
      */

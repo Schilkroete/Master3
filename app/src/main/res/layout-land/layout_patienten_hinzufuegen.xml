@@ -25,6 +25,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:textSize="30sp"
+            android:id="@+id/et_nachname"
             android:inputType="textPersonName"
             android:layout_margin="8dp"/>
         <EditText
@@ -32,6 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:id="@+id/et_vorname"
             android:textSize="30sp"
             android:inputType="textPersonName"
             android:layout_margin="8dp"/>
@@ -39,6 +41,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -60,15 +63,30 @@
         </RelativeLayout>
 
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_geburtsdatum"
-            android:hint="@string/tv_geburtsdatum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="30sp"
-            android:layout_margin="8dp"/>
+            <TextView
+                android:id="@+id/tv_geburtsdatum"
+                android:hint="@string/tv_geburtsdatum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="30sp"
+                android:layout_margin="8dp"/>
+
+            <TextView
+                android:hint="@string/tv_alter_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_alter"
+                android:textSize="30sp"
+                android:layout_alignBaseline="@+id/tv_geburtsdatum"
+                android:layout_alignBottom="@+id/tv_geburtsdatum"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_aktuellesDatum"
@@ -135,6 +153,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1">
+
             <EditText
                 android:hint="@string/et_beschwerden"
                 android:layout_width="match_parent"

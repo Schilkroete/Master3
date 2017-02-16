@@ -24,7 +24,6 @@ public class MainActivity extends Activity {
 
     private ShoppingMemoDataSource dataSource;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,36 +32,23 @@ public class MainActivity extends Activity {
         Log.e(LOG_TAG, "Das Datenquellen-Objekt wird angelegt.");
         dataSource = new ShoppingMemoDataSource(this);
 
-        activateAddButton();
-        // mit dieser Methode koennen wird Datensaetze loeschen
+        aktiviereHinzufuegenButton();
         initializeContextualActionBar();
     }
 
 
 
-    // Diese Methode liest alle vorhandenen Datensätze aus der Tabelle unserer SQLite Datenbank aus
-    // und speichert sie in einer Liste als ShoppingMemo-Objekte.
     private void zeigeAlleEintraege() {
-        // Hier rufen wir über unsere Datenquelle die Methode getAllShoppingMemos() auf, die uns
-        // alle Datenbankeinträge als Liste zurück liefert. Die Einträge dieser Liste sind
-        // vom Typ ShoppingMemo.
         List<ShoppingMemo> shoppingMemoList = dataSource.getAllShoppingMemos();
-        // Die Liste übergeben wir an einen ArrayAdapter*, der für uns die Verwaltungsarbeit übernimmt.
         ArrayAdapter<ShoppingMemo> shoppingMemoArrayAdapter = new ArrayAdapter<>(
-                // Die ausgelesenen Einträge lassen wir jeweils in einem vordefinierten
-                // Standardlayout, dem simple_list_item_multiple_choice, anzeigen
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
                 shoppingMemoList);
-        // Damit Datenbankeinträge auch auf dem Android Gerät angezeigt werden,
-        // binden wir den ArrayAdapter an den ListView der MainActivity.
         ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
         shoppingMemosListView.setAdapter(shoppingMemoArrayAdapter);
     }
 
 
-    // Datenquelle wird geoeffnet. Verbindung zur SQLite Datenbank wird hergestellt und
-    // alle Inhalte werden im ListView angezeigt
     @Override
     protected void onResume() {
         super.onResume();
@@ -75,7 +61,6 @@ public class MainActivity extends Activity {
     }
 
 
-    // Hier schliessen wir dir SQLite Datenbank
     @Override
     protected void onPause() {
         super.onPause();
@@ -86,7 +71,7 @@ public class MainActivity extends Activity {
 
 
 
-    private void activateAddButton() {
+    private void aktiviereHinzufuegenButton() {
         Button buttonAddProduct = (Button) findViewById(R.id.button_add_product);
         final EditText editTextQuantity = (EditText) findViewById(R.id.editText_quantity);
         final EditText editTextProduct = (EditText) findViewById(R.id.editText_product);
@@ -127,10 +112,7 @@ public class MainActivity extends Activity {
 
 
     private void initializeContextualActionBar() {
-        // TODO MainActivityName muss geaendert werden
-        // Anfrage einer Referenz zu dem ListView-Objekt der MainActivity
         final ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
-        // Mit dieser Anweisung koennen wir mehrere Datensaetze markieren/ auswaehlen
         shoppingMemosListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
         shoppingMemosListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
@@ -140,7 +122,6 @@ public class MainActivity extends Activity {
 
             }
 
-            // Hier wird das Menü der CAB mit dem Action Item gefuellt, der Lösch-Aktion
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 getMenuInflater().inflate(R.menu.menu_contextual_action_bar, menu);
@@ -152,26 +133,21 @@ public class MainActivity extends Activity {
                 return false;
             }
 
-            /* Hier wird geprueft welches Action Item angeklickt wurde und dann wird die
-             * entsprechenden Aktionen ausgefuehrt. In diesem Fall prüfen wir, ob das Action Item
-             * mit der ID cab_delete angeklickt wurde. Wenn das der Fall war,
-             * lassen wir uns die Positionen aller berührten Listeneinträge geben. */
+
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 switch (item.getItemId()) {
 
                     case R.id.cab_delete:
-                        SparseBooleanArray touchedShoppingMemosPositions =
-                                shoppingMemosListView.getCheckedItemPositions();
+                        SparseBooleanArray touchedShoppingMemosPositions = shoppingMemosListView.getCheckedItemPositions();
                         for (int i=0; i < touchedShoppingMemosPositions.size(); i++) {
                             boolean isChecked = touchedShoppingMemosPositions.valueAt(i);
                             if(isChecked) {
                                 int postitionInListView = touchedShoppingMemosPositions.keyAt(i);
                                 ShoppingMemo shoppingMemo = (ShoppingMemo)
                                         shoppingMemosListView.getItemAtPosition(postitionInListView);
-                                Log.e(LOG_TAG, "Position im ListView: " + postitionInListView
-                                        + " Inhalt: " + shoppingMemo.toString());
-                                // Mit dieser Anweisung loeschen wir die Datensaetze aus der Db
+                                Log.e(LOG_TAG, "Position im ListView: " + postitionInListView +
+                                        " Inhalt: " + shoppingMemo.toString());
                                 dataSource.deleteShoppingMemo(shoppingMemo);
                             }
                         }
@@ -183,7 +159,6 @@ public class MainActivity extends Activity {
                         return false;
                 }
             }
-
             @Override
             public void onDestroyActionMode(ActionMode mode) {
             }
@@ -191,10 +166,9 @@ public class MainActivity extends Activity {
     }
 
 
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Zeigt Menü an; fügt Items in die ActionBar, wenn diese aufgerufen wird
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -203,12 +177,11 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Wir prüfen, ob Menü-Element mit der ID "action_settings" ausgewählt wurde
         int id = item.getItemId();
-        // Vereinfachte if-Anweisung
         if (id == R.id.action_settings) {
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+    */
 }

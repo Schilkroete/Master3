@@ -35,11 +35,14 @@
             android:layout_height="wrap_content"
             android:text="@string/button_add_product"
             android:id="@+id/button_add_product" />
+
     </LinearLayout>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/listview_shopping_memos"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"/>
+
 </LinearLayout>

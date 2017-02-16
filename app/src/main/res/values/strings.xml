@@ -13,6 +13,7 @@
     <string name="tv_pflichtfeld" color="#ff0000">*</string>
     <string name="tv_geburtsdatum">Geburtsdatum:</string>
     <string name="tv_alter">Alter:</string>
+    <string name="tv_alter_normal">Alter</string>
     <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
     <string name="tv_waehleGeburtstag">+</string>
     <string name="tv_daten_in_datenbank_speichern">Daten in Datenbank speichern</string>

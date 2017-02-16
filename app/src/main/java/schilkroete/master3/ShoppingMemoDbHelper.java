@@ -1,17 +1,19 @@
 package schilkroete.master3;
 
-/**
- * Created by Schilkroete on 02.10.2016.
- */
-
-// Die ShoppingMemoDbHelper-Klasse hilft uns beim Erstellen und Aktualisieren der Datenbank.
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class ShoppingMemoDbHelper extends SQLiteOpenHelper{ //DatenbankManagerPatienten
+/**
+ * Created by Schilkroete on 02.10.2016.
+ */
+
+
+/**
+ * Die ShoppingMemoDbHelper-Klasse hilft uns beim Erstellen und Aktualisieren der Datenbank.
+ */
+public class ShoppingMemoDbHelper extends SQLiteOpenHelper{
 
     private static final String LOG_TAG = ShoppingMemoDbHelper.class.getSimpleName();
 
@@ -23,8 +25,7 @@ public class ShoppingMemoDbHelper extends SQLiteOpenHelper{ //DatenbankManagerPa
     public static final String COLUMN_QUANTITY = "quantity";
     public static final String SQL_CREATE =
             "CREATE TABLE " +
-                    TABLE_SHOPPING_LIST +
-                    "(" +
+                    TABLE_SHOPPING_LIST + "(" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_PRODUCT + " TEXT NOT NULL, " +
                     COLUMN_QUANTITY + " INTEGER NOT NULL);";
