@@ -15,16 +15,30 @@
     <string name="tv_alter">Alter:</string>
     <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
     <string name="tv_waehleGeburtstag">+</string>
+    <string name="tv_daten_in_datenbank_speichern">Daten in Datenbank speichern</string>
+    <string name="tv_daten_aus_datenbank_speichern">Daten aus Datenbank laden</string>
+    <string name="tv_datenbank_ist_leer">Datenbank ist leer</string>
+    <string name="tv_loeschen">Einträge löschen</string>
+    <string name="action_settings">Settings</string>
 
     // EditText
     <string name="et_medikamente">Medikamente:<font fgcolor="red">*</font></string>
     <string name="et_beschwerden">Beschwerden:<font fgcolor="red">*</font></string>
     <string name="et_notizen">Notizen:</string>
+    <string name="et_errorNachricht">Das Feld darf nicht leer sein.</string>
 
     // Buttons
     <string name="btn_new_pt">Patienten hinzufügen</string>
     <string name="btn_change_pt">Patienten auswählen</string>
     <string name="btn_settings">Einstellungen</string>
     <string name="btn_uebungen">Übungen</string>
+
+
+
+    <string name="editText_hint_quantity">Anzahl*</string>
+    <string name="editText_hint_product">Produkt*</string>
+    <string name="button_add_product">+</string>
+    <string name="editText_errorMessage">Das Feld darf nicht leer sein.</string>
+    <string name="cab_delete">Einträge löschen</string>
 
 </resources>

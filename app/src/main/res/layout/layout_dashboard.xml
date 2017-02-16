@@ -18,6 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -25,19 +26,21 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_Patienten_Hinzufuegen"
+                android:id="@+id/btn_patienten_hinzufuegen"
                 android:src="@drawable/add"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
         </FrameLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_Patienten_Suche"
+                android:id="@+id/btn_patientensuche"
                 android:src="@drawable/change"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
@@ -57,7 +60,7 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_Uebungen"
+                android:id="@+id/btn_uebungen"
                 android:src="@drawable/training"
                 android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"/>
@@ -69,11 +72,10 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_Einstellungen"
+                android:id="@+id/btn_einstellungen"
                 android:src="@drawable/settings"
                 android:background="?android:selectableItemBackground"
-                android:layout_gravity="center"
-                android:onClick="bgWechsel (ActivityDashboard)"/>
+                android:layout_gravity="center"/>
         </FrameLayout>
     </LinearLayout>
 
