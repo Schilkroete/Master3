@@ -33,11 +33,10 @@ public class MainActivity extends Activity {
         dataSource = new ShoppingMemoDataSource(this);
 
         aktiviereHinzufuegenButton();
-        initializeContextualActionBar();
+//        initializeContextualActionBar();
     }
 
-
-
+/*
     private void zeigeAlleEintraege() {
         List<ShoppingMemo> shoppingMemoList = dataSource.getAllShoppingMemos();
         ArrayAdapter<ShoppingMemo> shoppingMemoArrayAdapter = new ArrayAdapter<>(
@@ -47,6 +46,7 @@ public class MainActivity extends Activity {
         ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
         shoppingMemosListView.setAdapter(shoppingMemoArrayAdapter);
     }
+*/
 
 
     @Override
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
         dataSource.open();
 
         Log.e(LOG_TAG, "Folgende Einträge sind in der Datenbank vorhanden:");
-        zeigeAlleEintraege();
+//        zeigeAlleEintraege();
     }
 
 
@@ -103,7 +103,7 @@ public class MainActivity extends Activity {
                 if(getCurrentFocus() != null) {
                     inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 }
-                zeigeAlleEintraege();
+ //               zeigeAlleEintraege();
             }
         });
 
@@ -111,6 +111,7 @@ public class MainActivity extends Activity {
 
 
 
+/*
     private void initializeContextualActionBar() {
         final ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
         shoppingMemosListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -151,7 +152,7 @@ public class MainActivity extends Activity {
                                 dataSource.deleteShoppingMemo(shoppingMemo);
                             }
                         }
-                        zeigeAlleEintraege();
+ //                       zeigeAlleEintraege();
                         mode.finish();
                         return true;
 
@@ -164,6 +165,19 @@ public class MainActivity extends Activity {
             }
         });
     }
+*/
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*

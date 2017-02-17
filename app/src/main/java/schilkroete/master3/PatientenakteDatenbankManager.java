@@ -16,7 +16,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
 
     private static final String LOG_TAG = PatientenakteDatenbankManager.class.getSimpleName();
 
-    private static final String DB_NAME = "ergoTest.db";
+    private static final String DB_NAME = "ergoTest4.db";
     public static final int DB_VERSION = 1;
 
     public static final String TABELLEN_NAME = "patientenakte";
@@ -45,7 +45,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
          * (auf dieser ist die SQLiteObenHelpter-Klasse)
          */
         super(context, DB_NAME, null, DB_VERSION);
-        Log.e(LOG_TAG, "DbHelper hat die Datenbank: " + getDatabaseName() + " erzeugt.");
+        Log.e(LOG_TAG, "DbHelfer hat die Datenbank: " + getDatabaseName() + " erzeugt.");
     }
 
 
