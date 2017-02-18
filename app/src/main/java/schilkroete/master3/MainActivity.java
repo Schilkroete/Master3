@@ -111,7 +111,7 @@ public class MainActivity extends Activity {
 
 
 
-/*
+
     private void initializeContextualActionBar() {
         final ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_shopping_memos);
         shoppingMemosListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
@@ -165,7 +165,7 @@ public class MainActivity extends Activity {
             }
         });
     }
-*/
+
 
 
 
