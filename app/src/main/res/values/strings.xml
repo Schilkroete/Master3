@@ -42,4 +42,6 @@
     <string name="editText_errorMessage">Das Feld darf nicht leer sein.</string>
     <string name="cab_delete">Einträge löschen</string>
 
+
+    <string name="thumbnail">thumbnail</string>
 </resources>

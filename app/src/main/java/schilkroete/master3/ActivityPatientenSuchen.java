@@ -146,7 +146,7 @@ public class ActivityPatientenSuchen extends Activity {
 
     private void initializeContextualActionBar2() {
         final ListView patientenakteListView = (ListView) findViewById(R.id.listview_patientenakte);
-        patientenakteListView .setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
+        patientenakteListView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE_MODAL);
 
         patientenakteListView.setMultiChoiceModeListener(new AbsListView.MultiChoiceModeListener() {
 

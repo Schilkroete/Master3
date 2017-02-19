@@ -49,7 +49,6 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_patienten_hinzufuegen);
 
-
         tv_aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
         tv_geburtsdatum = (TextView) findViewById(R.id.tv_geburtsdatum);
         tv_pflichtfeld = (TextView) findViewById(R.id.tv_pflichtfeld);
@@ -145,19 +144,6 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         });
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
