@@ -57,7 +57,6 @@ public class ActivityDashboard extends Activity {
         });
 
 
-
        //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
         btn = (ImageButton) findViewById(R.id.btn_einstellungen);
         btn.setOnClickListener(new View.OnClickListener(){
@@ -69,7 +68,5 @@ public class ActivityDashboard extends Activity {
                 startActivity(einstellungen);
             }
         });*/
-
     }
-
 }

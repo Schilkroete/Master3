@@ -1,10 +1,6 @@
 package schilkroete.master3;
 
 /**
- * Created by Schilkroete on 16.02.2017.
- */
-
-/**
  * Instanzen dieser Klassen können die Daten eines SQLite-Datensatzes aufnehmen
  * Das ListView wird mit Objekten dieser Klasse gefüllt
  *
@@ -31,11 +27,9 @@ public class Patientenakte {
         this.notizen = notizen;
         this.id = id;
     }
-
-   /* public String gibVorname() {
+    /* public String gibVorname() {
         return vorname;
     }
-
     public void setzeVorname(String vorname) {
         this.vorname = vorname;
     }
@@ -43,7 +37,6 @@ public class Patientenakte {
     public String gibNachname() {
         return nachname;
     }
-
     public void setzeNachname(String nachname) {
         this.nachname = nachname;
     }
@@ -51,7 +44,6 @@ public class Patientenakte {
     public String gibGeburtsdatum() {
         return geburtsdatum;
     }
-
     public void setzeGeburtsdatum(String geburtsdatum) {
         this.geburtsdatum = geburtsdatum;
     }
@@ -59,7 +51,6 @@ public class Patientenakte {
     public String gibBeschwerden() {
         return beschwerden;
     }
-
     public void setzeBeschwerden(String beschwerden) {
         this.beschwerden = beschwerden;
     }
@@ -67,7 +58,6 @@ public class Patientenakte {
     public String gibMedikamente() {
         return medikamente;
     }
-
     public void setzeMedikamente(String medikamente) {
         this.medikamente = medikamente;
     }
@@ -75,7 +65,6 @@ public class Patientenakte {
     public String gibNotizen() {
         return notizen;
     }
-
     public void setzeNotizen(String notizen) {
         this.notizen = notizen;
     }*/
@@ -83,7 +72,6 @@ public class Patientenakte {
     public long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -93,7 +81,6 @@ public class Patientenakte {
     public String toString(){
         String ausgabe = vorname + " " + nachname + " " + geburtsdatum + " " + beschwerden + " " +
                 medikamente + " " + notizen;
-
         return ausgabe;
     }
 }

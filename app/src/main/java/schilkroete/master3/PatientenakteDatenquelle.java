@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Schilkroete on 16.02.2017.
- */
-
-/**
  * Regelt alle Datenbankzugriffe, ob lesend oder schreibend
  */
 public class PatientenakteDatenquelle {
@@ -174,7 +170,4 @@ public class PatientenakteDatenquelle {
         cursor.close();
         return patientenakteListe;
     }
-
-
-
 }

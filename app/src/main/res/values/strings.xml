@@ -13,10 +13,9 @@
     <string name="tv_waehleGeburtstag">+</string>
     <string name="tv_pflichtfeld"><font fgcolor="red">*</font></string>
     <string name="tv_alter">Alter:</string>
-    <string name="tv_alter_normal">Alter</string>
     <string name="tv_rg_beschwerden">Beschwerden eingeben?<font fgcolor="red">*</font></string>
     <string name="tv_rg_medikamente">Medikamente eingeben?<font fgcolor="red">*</font></string>
-    <string name="tv_rg_notizen">Notizen eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_rg_notizen">Notizen eingeben?</string>
     <string name="tv_error">Das Feld darf nicht leer sein.</string>
     <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
     <string name="tv_daten_in_datenbank_speichern">Daten in Datenbank speichern</string>
@@ -27,7 +26,7 @@
     // EditText
     <string name="et_medikamente">Medikamente:<font fgcolor="red">*</font></string>
     <string name="et_beschwerden">Beschwerden:<font fgcolor="red">*</font></string>
-    <string name="et_notizen">Notizen:<font fgcolor="red">*</font></string>
+    <string name="et_notizen">Notizen:</string>
 
     // Buttons
     <string name="btn_new_pt">Patienten hinzufügen</string>

@@ -1,7 +1,5 @@
 package schilkroete.master3;
 
-//TODO Ausgabe soll anders gelistet werden
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,16 +12,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.List;
 
-/**
- * Created by Schilkroete on 03.02.2017.
- */
 
 public class ActivityPatientenSuchen extends Activity {
 
     public static final String TAG = ActivityPatientenSuchen.class.getSimpleName();
 
     private PatientenakteDatenquelle datenbank;
-
 
 
     @Override
@@ -38,7 +32,6 @@ public class ActivityPatientenSuchen extends Activity {
     }
 
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -49,7 +42,6 @@ public class ActivityPatientenSuchen extends Activity {
         Log.e(TAG, "Folgende Einträge sind in der Datenbank vorhanden:");
         zeigeAlleEintraege();
     }
-
 
 
     @Override
@@ -70,7 +62,6 @@ public class ActivityPatientenSuchen extends Activity {
         ListView shoppingMemosListView = (ListView) findViewById(R.id.listview_patientenakte);
         shoppingMemosListView.setAdapter(patientenakteArrayAdapter);
     }
-
 
 
     private void initializeContextualActionBar() {

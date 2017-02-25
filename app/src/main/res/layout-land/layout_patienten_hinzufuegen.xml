@@ -7,126 +7,161 @@
     android:focusableInTouchMode="true"
     android:background="@drawable/bg">
 
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:layout_weight="1">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_weight="1">
-        <EditText
-            android:hint="@string/tv_nachname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="30sp"
-            android:id="@+id/et_nachname"
-            android:inputType="textPersonName"
-            android:layout_margin="8dp"/>
-        <EditText
-            android:hint="@string/tv_vorname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/et_vorname"
-            android:textSize="30sp"
-            android:inputType="textPersonName"
-            android:layout_margin="8dp"/>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:text="@string/tv_waehleGeburtstag"
-                android:id="@+id/btn_waehleGeburtstag"
-                android:layout_margin="8dp"/>
-            <TextView
-                android:text="@string/tv_pflichtfeld"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:id="@+id/tv_pflichtfeld"
-                android:layout_alignTop="@+id/btn_waehleGeburtstag"
-                android:layout_toEndOf="@+id/btn_waehleGeburtstag"
-                android:layout_toRightOf="@+id/btn_waehleGeburtstag"
-                android:textColor="@android:color/holo_red_dark"/>
-
-        </RelativeLayout>
-
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tv_geburtsdatum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:textSize="30sp"
-                android:layout_margin="8dp"/>
-
-            <TextView
-                android:hint="@string/tv_alter_normal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tv_alter"
-                android:textSize="30sp"
-                android:layout_alignBaseline="@+id/tv_geburtsdatum"
-                android:layout_alignBottom="@+id/tv_geburtsdatum"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"/>
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/tv_aktuellesDatum"
-            android:hint="@string/tv_aktuellesDatum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textSize="24sp"
-            android:visibility="invisible"/>
-    </LinearLayout>
-
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"/>
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"/>
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-        <EditText
-            android:hint="@string/et_notizen"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="10"
-            android:id="@+id/et_notizen"
-            android:textSize="30sp"
-            android:layout_margin="8dp"/>
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <EditText
+                android:id="@+id/et_nachname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/tv_nachname"
+                android:ems="10"
+                android:textSize="30sp"
+                android:inputType="textPersonName"
+                android:layout_margin="8dp"/>
+            <EditText
+                android:id="@+id/et_vorname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/tv_vorname"
+                android:ems="10"
+                android:textSize="30sp"
+                android:inputType="textPersonName"
+                android:layout_margin="8dp"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btn_waehleGeburtstag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_waehleGeburtstag"
+                    android:textSize="30sp"
+                    android:layout_margin="8dp"/>
+                <TextView
+                    android:id="@+id/tv_pflichtfeld"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_pflichtfeld"
+                    android:textSize="30sp"
+                    android:layout_alignTop="@+id/btn_waehleGeburtstag"
+                    android:layout_toEndOf="@+id/btn_waehleGeburtstag"
+                    android:layout_toRightOf="@+id/btn_waehleGeburtstag"
+                    android:textColor="@android:color/holo_red_dark"/>
+                <TextView
+                    android:id="@+id/tv_geburtsdatum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/tv_pflichtfeld"
+                    android:layout_toEndOf="@+id/tv_pflichtfeld"
+                    android:layout_toRightOf="@+id/tv_pflichtfeld"
+                    android:ems="7"
+                    android:textSize="30sp"
+                    android:layout_margin="8dp"/>
+                <TextView
+                    android:id="@+id/tv_alter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"
+                    android:layout_alignBaseline="@+id/tv_geburtsdatum"
+                    android:layout_alignBottom="@+id/tv_geburtsdatum"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_aktuellesDatum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/tv_aktuellesDatum"
+                android:ems="10"
+                android:textSize="24sp"
+                android:visibility="invisible"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:id="@+id/rl_notizen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_alignParentTop="true">
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/tv_rb_notizen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/tv_rg_notizen"
+                            android:gravity="center"
+                            android:layout_weight="1"/>
+                        <RadioButton
+                            android:id="@+id/rb_notizen_ja"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rb_ja"
+                            android:onClick="zeigeNotizen"
+                            android:layout_weight="1"/>
+                        <RadioButton
+                            android:id="@+id/rb_notizen_nein"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/rb_nein"
+                            android:checked="true"
+                            android:onClick="versteckeNotizen"
+                            android:layout_weight="1"/>
+                    </RadioGroup>
+                </RelativeLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/et_beschwerden"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/et_beschwerden"
+                    android:ems="10"
+                    android:textSize="30sp"
+                    android:layout_margin="8dp"
+                    android:layout_weight="1"/>
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
-
-
-</LinearLayout>
-
 
     <View
         android:layout_width="match_parent"
@@ -146,21 +181,23 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:layout_weight="1">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1">
-
-            <EditText
-                android:hint="@string/et_beschwerden"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:ems="10"
-                android:id="@+id/et_beschwerden"
-                android:textSize="30sp"
-                android:layout_margin="8dp"/>
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/et_medikamente"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/et_medikamente"
+                    android:textSize="30sp"
+                    android:layout_margin="8dp"/>
+            </RelativeLayout>
         </LinearLayout>
 
         <View
@@ -181,28 +218,32 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:layout_weight="1">
-            <EditText
-                android:hint="@string/et_medikamente"
-                android:layout_width="match_parent"
+            <RelativeLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:id="@+id/et_medikamente"
-                android:textSize="30sp"
-                android:layout_margin="8dp"/>
+                android:layout_weight="1">
+                <EditText
+                    android:id="@+id/et_notizen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/et_notizen"
+                    android:visibility="invisible"
+                    android:ems="10"
+                    android:textSize="30sp"
+                    android:layout_margin="8dp"/>
+            </RelativeLayout>
         </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
-
         <Button
+            android:id="@+id/btn_speichern"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_speichern"
             android:text="@string/tv_daten_in_datenbank_speichern"/>
-
     </LinearLayout>
 
 </LinearLayout>

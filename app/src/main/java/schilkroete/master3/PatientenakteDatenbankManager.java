@@ -6,10 +6,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 /**
- * Created by Schilkroete on 16.02.2017.
- */
-
-/**
  * Die PatientenakteDatenbankManager-Klasse hilft uns beim Erstellen und Aktualisieren der Datenbank.
  */
 public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
@@ -64,11 +60,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
              */
             Log.e(TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE + " angelegt.");
             db.execSQL(SQL_CREATE);
-        }
-        /*
-         * Sollte ein Fehler beim Erstellen der Tabelle aufgetreten sein,
-         * wird dieser hier aufgefangen
-         */ catch (Exception ex) {
+        } catch (Exception ex) {
             Log.e(TAG, "Fehler beim Anlegen der Tabelle: " + ex.getMessage());
         }
     }
