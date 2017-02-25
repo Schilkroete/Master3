@@ -33,6 +33,7 @@
             android:name=".ActivityPatientenSuchen"
             android:label="@string/lable_hinzufuegenPt"
             android:screenOrientation="userLandscape">
+
         </activity>
 
         <activity
