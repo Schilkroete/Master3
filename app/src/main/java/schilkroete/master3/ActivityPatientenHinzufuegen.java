@@ -17,8 +17,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
-
 
 /**
  * Created by Schilkroete on 02.02.2017.
@@ -48,7 +48,6 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
 
     private PatientenakteDatenquelle datenquelle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,12 +70,15 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     }
 
 
+
     @Override
     protected void onResume() {
         super.onResume();
         Log.e(TAG, "Die Datenquelle wird geöffnet.");
         datenquelle.open();
     }
+
+
 
     @Override
     protected void onPause() {
@@ -85,7 +87,13 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         datenquelle.close();
     }
 
+
+
+    /**
+     * Was passiert wenn der Speicher-Button gedrückt wurde
+     */
     private void aktiviereHinzufuegenButton() {
+
         Button btn_speichern = (Button) findViewById(R.id.btn_speichern);
         final EditText et_vorname = (EditText) findViewById(R.id.et_vorname);
         final EditText et_nachname = (EditText) findViewById(R.id.et_nachname);
@@ -93,6 +101,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         final EditText et_beschwerden = (EditText) findViewById(R.id.et_beschwerden);
         final EditText et_medikamente = (EditText) findViewById(R.id.et_medikamente);
         final EditText et_notizen = (EditText) findViewById(R.id.et_notizen);
+
 
         btn_speichern.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,37 +114,37 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 String st_et_medikamente = et_medikamente.getText().toString();
                 String st_et_notizen = et_notizen.getText().toString();
 
+
                 if(TextUtils.isEmpty(st_et_nachname)) {
-                    et_nachname.setError(getString(R.string.editText_errorMessage));
+                    et_nachname.setError(getString(R.string.tv_error));
                     return;
                 }
+/*
                 if(TextUtils.isEmpty(st_et_vorname)) {
-                    et_vorname.setError(getString(R.string.editText_errorMessage));
+                    et_vorname.setError(getString(R.string.tv_error));
                     return;
                 }
+*/
                 if(TextUtils.isEmpty(st_tv_geburtsdatum)) {
-                    tv_geburtsdatum.setError(getText(R.string.editText_errorMessage));
+                    tv_geburtsdatum.setError(getText(R.string.tv_error));
                     return;
                 }
+/*
                 if(TextUtils.isEmpty(st_et_beschwerden)) {
-                    et_beschwerden.setError(getString(R.string.editText_errorMessage));
+                    et_beschwerden.setError(getString(R.string.tv_error));
                     return;
                 }
                 if(TextUtils.isEmpty(st_et_medikamente)) {
-                    et_medikamente.setError(getString(R.string.editText_errorMessage));
+                    et_medikamente.setError(getString(R.string.tv_error));
                     return;
                 }
                 if(TextUtils.isEmpty(st_et_notizen)) {
-                    et_notizen.setError(getString(R.string.editText_errorMessage));
+                    et_notizen.setError(getString(R.string.tv_error));
                     return;
                 }
+*/
 
-                et_vorname.setText("");
-                et_nachname.setText("");
-                tv_geburtsdatum.setText("");
-                et_beschwerden.setText("");
-                et_medikamente.setText("");
-                et_notizen.setText("");
+
 
                 datenquelle.erstellePatientenakte(st_et_vorname, st_et_nachname, st_tv_geburtsdatum,
                         st_et_beschwerden, st_et_medikamente, st_et_notizen);
@@ -145,10 +154,27 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 if(getCurrentFocus() != null) {
                     inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 }
+
+
+                et_vorname.setText("");
+                et_nachname.setText("");
+                tv_geburtsdatum.setText("");
+                et_beschwerden.setText("");
+                et_medikamente.setText("");
+                et_notizen.setText("");
+
+/*
+                Intent ptHinzufuegen = new Intent(ActivityPatientenHinzufuegen.this,
+                        ActivityPatientenHinzufuegen.class);
+                startActivity(ptHinzufuegen);
+*/
+
+
             }
         });
 
     }
+
 
 
 
@@ -181,6 +207,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     }
 
 
+
     /**
      * Öffnet das Dialogfenster beim Klicken des Plus-Buttons
      * @param view
@@ -195,6 +222,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 break;
         }
     }
+
 
 
     /**

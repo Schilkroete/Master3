@@ -44,7 +44,7 @@ public class ActivityDashboard extends Activity {
         });
 
 
-        //Log.e(TAG, "Button \"Übungen\" wurde erstellt/angelegt");
+ /*        //Log.e(TAG, "Button \"Übungen\" wurde erstellt/angelegt");
         btn = (ImageButton) findViewById(R.id.btn_uebungen);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -58,7 +58,7 @@ public class ActivityDashboard extends Activity {
 
 
 
-    /*    //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
+       //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
         btn = (ImageButton) findViewById(R.id.btn_einstellungen);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override

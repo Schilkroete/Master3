@@ -62,26 +62,44 @@ public class PatientenakteDatenquelle {
     }
 
 
+    // Mit dieser Methode können Datensätze in die Tabelle der SQLite Datenbank eingefügt werden
     public Patientenakte erstellePatientenakte(
             String vorname, String nachname, String geburtsdatum,
             String beschreibung, String medikamente, String notizen){
-        ContentValues values = new ContentValues();
-        values.put(PatientenakteDatenbankManager.SPALTE_VORNAME, vorname);
-        values.put(PatientenakteDatenbankManager.SPALTE_NACHNAME, nachname);
-        values.put(PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM, geburtsdatum);
-        values.put(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN, beschreibung);
-        values.put(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE, medikamente);
-        values.put(PatientenakteDatenbankManager.SPALTE_NOTIZEN, notizen);
+        // Hier wird ein ContentValue-Objekt erzeigt
+        ContentValues alleWerte = new ContentValues();
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_VORNAME, vorname);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_NACHNAME, nachname);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM, geburtsdatum);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN, beschreibung);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE, medikamente);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_NOTIZEN, notizen);
 
-        long einfuegenId = datenbank.insert(PatientenakteDatenbankManager.TABELLEN_NAME, null, values);
-
+         /*
+          * Hier werden die Werte mit Hilfe des ContentValues-Objekt in die Tabelle eingetragen.
+          * Dazu wird der insert-Befehl verwendet, den wir auf dem SQLiteDatabase-Objekt ausfuehren
+          * Als Argument wird der Name der Tabelle uebergeben, null fuer den ColumnHack und das vorbereitete
+          * ContentValue-Objekt. Wenn das Einfuegen erfolgreich war, dann erhalten wir die ID des
+          * erstelllten Datensatzes zurueck.
+          */
+        long einfuegenId = datenbank.insert(PatientenakteDatenbankManager.TABELLEN_NAME, null, alleWerte);
+        /*
+         * Wir lesen die eingegebenen Werte zur Kontrolle, mit dieser Anweisung, aus
+         * Als Argument uebergeben wir den Namen der Tabelle, den Spaleten-Array (die Suchanfrage
+         * soll die Werte fuer alle Spalten zurueckliefern)
+         * und den Such-String mit dem wir nach dem eingefuegten Datensatz suchen.
+         */
         Cursor cursor = datenbank.query(PatientenakteDatenbankManager.TABELLEN_NAME, spaltenArray,
                 PatientenakteDatenbankManager.SPALTE_ID + "=" + einfuegenId, null, null, null,null);
-
+        /*
+         * Mit dieser Anweisung bewegen wir den Cursor an die Position seines ersten Datensatzes.
+         * Anschließend wird die cursorToShoppingMemo() Methode aufgerufen und wandelt dadurch den
+         * Datensatz des Cursor-Objekts in ein ShoppingMemo-Objekt um.
+         */
         cursor.moveToFirst();
         Patientenakte patientenakte = cursorZuPatientenakte(cursor);
         cursor.close();
-
+        // Das so erzeugte Patientenakte-Objekt geben wir an die aufrufende Methode zurück
         return patientenakte;
     }
 
@@ -113,7 +131,9 @@ public class PatientenakteDatenquelle {
         return patientenakte;
     }
 
+    // Die ID des zu löschenden Datensatzes lesen wir aus dem übergebenen Patientenakte-Objekt
     public void loeschePatientenakte (Patientenakte patientenakte){
+        // Anschließend führen wir die Lösch-Operation auf dem SQLiteDatenbank-Objekt aus.
         long id = patientenakte.getId();
 
         datenbank.delete(PatientenakteDatenbankManager.TABELLEN_NAME,
@@ -122,15 +142,29 @@ public class PatientenakteDatenquelle {
         Log.e(TAG, "Eintrag gelöscht ID: " + id + " Inhalt: " + patientenakte.toString());
     }
 
-
+    /**
+     * Mit dieser Methode werden alle vorhandenen Datensätze aus der Tabelle unserer SQLite
+     * Datenbank auslesen. Dazu erzeugen wir gleich zu Beginn der Methode eine Liste,
+     * die Patientenakte-Objekt in sich aufnehmen kann.
+     * @return Die erzeugte Patientenakte-Liste geben wir zurück, die alle Datensätze der Tabelle enthält
+     */
     public List<Patientenakte> gibAllePatientenakten(){
         List<Patientenakte> patientenakteListe = new ArrayList<>();
-
+        /*
+         * Anschließend wird eine Suchanfrage gestartet. Diesmal übergeben wir als Argumente
+         * nur den Namen der Tabelle und den Spalten-Array. Alle anderen Argumente sind null,
+         * d.h. auch der Such-String ist null, wodurch alle in der Tabelle existierenden Datensätze
+         * als Ergebnis zurückgeliefert werden.
+         */
         Cursor cursor = datenbank.query(PatientenakteDatenbankManager.TABELLEN_NAME,
                 spaltenArray, null, null, null, null, null);
         cursor.moveToFirst();
         Patientenakte patientenakte;
-
+        /*
+         * Hiermit lesen wir alle Datensätze der Suchanfrage aus, wandeln sie in Patienten-Objekte um
+         * und fügen sie der Patientenakte-Liste hinzu. Mit der LOG-Meldung können wir überprüfen,
+         * welche Datensätze sich in der Tabelle befinden.
+         */
         while(!cursor.isAfterLast()){
             patientenakte = cursorZuPatientenakte(cursor);
             patientenakteListe.add(patientenakte);
@@ -138,7 +172,6 @@ public class PatientenakteDatenquelle {
             cursor.moveToNext();
         }
         cursor.close();
-
         return patientenakteListe;
     }
 

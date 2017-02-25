@@ -5,8 +5,11 @@ package schilkroete.master3;
  */
 
 /**
- * Instanzen dieser Klassen können die Daten eines SQLite-Datensatyes aufnehmen
+ * Instanzen dieser Klassen können die Daten eines SQLite-Datensatzes aufnehmen
  * Das ListView wird mit Objekten dieser Klasse gefüllt
+ *
+ * Diese Klasse wird genutzt um die Daten der Datensätze der SQLite-Datenbank in Java-Objekten zu speichern
+ *
  */
 public class Patientenakte {
 
@@ -29,7 +32,7 @@ public class Patientenakte {
         this.id = id;
     }
 
-    public String gibVorname() {
+   /* public String gibVorname() {
         return vorname;
     }
 
@@ -75,7 +78,7 @@ public class Patientenakte {
 
     public void setzeNotizen(String notizen) {
         this.notizen = notizen;
-    }
+    }*/
 
     public long getId() {
         return id;

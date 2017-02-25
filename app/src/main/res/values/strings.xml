@@ -9,25 +9,25 @@
 
     // TextViews
     <string name="tv_vorname">Vorname:<font fgcolor="red">*</font></string>
-    <string name="tv_nachname">Nachname:</string>
-    <string name="tv_pflichtfeld" color="#ff0000">*</string>
-    <string name="tv_geburtsdatum">Geburtsdatum:</string>
+    <string name="tv_nachname">Nachname:<font fgcolor="red">*</font></string>
+    <string name="tv_waehleGeburtstag">+</string>
+    <string name="tv_pflichtfeld"><font fgcolor="red">*</font></string>
     <string name="tv_alter">Alter:</string>
     <string name="tv_alter_normal">Alter</string>
+    <string name="tv_rg_beschwerden">Beschwerden eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_rg_medikamente">Medikamente eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_rg_notizen">Notizen eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_error">Das Feld darf nicht leer sein.</string>
     <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
-    <string name="tv_waehleGeburtstag">+</string>
     <string name="tv_daten_in_datenbank_speichern">Daten in Datenbank speichern</string>
     <string name="tv_daten_aus_datenbank_speichern">Daten aus Datenbank laden</string>
     <string name="tv_datenbank_ist_leer">Datenbank ist leer</string>
     <string name="tv_loeschen">Einträge löschen</string>
-    <string name="action_settings">Settings</string>
-    <string name="tv_aph_radiogroup">Wählen Sie Ihre "Eingaben"</string>
 
     // EditText
-    <string name="et_medikamente">Medikamente:*</string>
-    <string name="et_beschwerden">Beschwerden:*</string>
-    <string name="et_notizen">Notizen:</string>
-    <string name="et_errorNachricht">Das Feld darf nicht leer sein.</string>
+    <string name="et_medikamente">Medikamente:<font fgcolor="red">*</font></string>
+    <string name="et_beschwerden">Beschwerden:<font fgcolor="red">*</font></string>
+    <string name="et_notizen">Notizen:<font fgcolor="red">*</font></string>
 
     // Buttons
     <string name="btn_new_pt">Patienten hinzufügen</string>
@@ -41,11 +41,11 @@
 
 
 
+    <string name="button_add_product">+</string>
     <string name="editText_hint_quantity">Anzahl*</string>
     <string name="editText_hint_product">Produkt*</string>
-    <string name="button_add_product">+</string>
-    <string name="editText_errorMessage">Das Feld darf nicht leer sein.</string>
     <string name="cab_delete">Einträge löschen</string>
+    <string name="action_settings">Settings</string>
 
 
     <string name="thumbnail">thumbnail</string>

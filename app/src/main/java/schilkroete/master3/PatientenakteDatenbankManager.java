@@ -14,7 +14,7 @@ import android.util.Log;
  */
 public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
 
-    private static final String LOG_TAG = PatientenakteDatenbankManager.class.getSimpleName();
+    private static final String TAG = PatientenakteDatenbankManager.class.getSimpleName();
 
     private static final String DB_NAME = "ergoTest4.db";
     public static final int DB_VERSION = 1;
@@ -41,36 +41,40 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
 
 
     public PatientenakteDatenbankManager(Context context) {
-        /* Ruft Konstruktor der PatientenakteDatenbankManager-Elternklasse auf
+        /*
+         * Ruft Konstruktor der PatientenakteDatenbankManager-Elternklasse auf
          * (auf dieser ist die SQLiteObenHelpter-Klasse)
          */
         super(context, DB_NAME, null, DB_VERSION);
-        Log.e(LOG_TAG, "DbHelfer hat die Datenbank: " + getDatabaseName() + " erzeugt.");
+        Log.e(TAG, "DbHelfer hat die Datenbank: " + getDatabaseName() + " erzeugt.");
     }
 
 
-    // Die onCreate-Methode wird nur aufgerufen, falls die Datenbank noch nicht existiert
-    // !Sollte die App deinstalliert werden wird die DB auch entfernt!
+    /**
+     * Die onCreate-Methode wird nur aufgerufen, falls die Datenbank noch nicht existiert
+     * !Sollte die App deinstalliert werden wird die DB auch entfernt!
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         try {
-            /* Die Tabelle wird erstellt und die SQL-Datenbank eingefuegt
+            /*
+             * Die Tabelle wird erstellt und die SQL-Datenbank eingefügt
              * Damit wird mittels "execSQL()" dem SQL-DB-Objekt
              * das SQL-Kommando zur Ausfuehrung uebergeben
              */
-            Log.e(LOG_TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE + " angelegt.");
+            Log.e(TAG, "Die Tabelle wird mit SQL-Befehl: " + SQL_CREATE + " angelegt.");
             db.execSQL(SQL_CREATE);
         }
-        /* Sollte ein Fehler beim Erstellen der Tabelle aufgetreten sein,
+        /*
+         * Sollte ein Fehler beim Erstellen der Tabelle aufgetreten sein,
          * wird dieser hier aufgefangen
          */ catch (Exception ex) {
-            Log.e(LOG_TAG, "Fehler beim Anlegen der Tabelle: " + ex.getMessage());
+            Log.e(TAG, "Fehler beim Anlegen der Tabelle: " + ex.getMessage());
         }
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
     }
 }
