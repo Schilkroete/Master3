@@ -1,7 +1,12 @@
 package schilkroete.master3;
 
+//TODO "!"-Markierung beim Feld "Geburtsdatum" entfernen
+//TODO Medikamente mit RadioButton versehen, wenn Medikamente genommen werden, dann soll ein EditText-Feld erscheinen, ansonsten wird in der Datenbank "keine" als StringValue hinterlegt
+//TODO Notizen mit RadioButton versehen, wenn ja, dann soll ein EditText-Feld erscheinen, ansonsten wird in der Datenbank "keine" als StringValue hinterlegt
+//TODO Beim klickenn auf den SpeichernButton soll ein Dialog erscheinen ob die Daten vollständig sind oder ob noch eine Änderung vorgenommen werden soll, anschließen soll abgefragt werden was passiert werden soll "Neuen Pt hinzufügen" | "Mit dem Pt arbeiten" | "zurück zum Dashboard"
+
+
 import android.app.Activity;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -47,7 +52,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_patienten_hinzufuegen);
+        setContentView(R.layout.layout_test);
 
         tv_aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
         tv_geburtsdatum = (TextView) findViewById(R.id.tv_geburtsdatum);
