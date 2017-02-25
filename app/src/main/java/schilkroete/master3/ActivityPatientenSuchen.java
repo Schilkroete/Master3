@@ -1,5 +1,7 @@
 package schilkroete.master3;
 
+//TODO Ausgabe soll anders gelistet werden
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +23,7 @@ public class ActivityPatientenSuchen extends Activity {
     public static final String LOG_TAG = ActivityPatientenSuchen.class.getSimpleName();
 
     private ShoppingMemoDataSource dataSource;
-      private PatientenakteDatenquelle datenbank;
+    private PatientenakteDatenquelle datenbank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

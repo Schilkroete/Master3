@@ -3,20 +3,11 @@ package schilkroete.master3;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import java.util.List;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.util.SparseBooleanArray;
-import android.view.ActionMode;
-import android.widget.AbsListView;
-
 
 public class MainActivity extends Activity {
 
@@ -33,7 +24,6 @@ public class MainActivity extends Activity {
         dataSource = new ShoppingMemoDataSource(this);
 
         aktiviereHinzufuegenButton();
-//        initializeContextualActionBar();
     }
 
 /*
@@ -166,15 +156,6 @@ public class MainActivity extends Activity {
         });
     }
 */
-
-
-
-
-
-
-
-
-
 
 
 

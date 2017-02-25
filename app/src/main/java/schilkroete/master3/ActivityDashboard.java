@@ -2,9 +2,7 @@ package schilkroete.master3;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.DashPathEffect;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -60,7 +58,7 @@ public class ActivityDashboard extends Activity {
 
 
 
-        //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
+    /*    //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
         btn = (ImageButton) findViewById(R.id.btn_einstellungen);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -70,7 +68,7 @@ public class ActivityDashboard extends Activity {
                         ActivityDashboard.class);
                 startActivity(einstellungen);
             }
-        });
+        });*/
 
     }
 

@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="schilkroete.master3">
 
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,8 +23,6 @@
             </intent-filter>
         </activity>
 
-
-
         <activity
             android:name=".ActivityPatientenHinzufuegen"
             android:label="@string/lable_hinzufuegenPt"
@@ -41,8 +40,6 @@
             android:label="@string/lable_hinzufuegenPt"
             android:screenOrientation="userLandscape">
         </activity>
-
-
 
 
     </application>
