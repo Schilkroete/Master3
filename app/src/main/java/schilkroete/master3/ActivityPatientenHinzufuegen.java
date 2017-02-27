@@ -13,7 +13,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 /**
@@ -27,8 +26,6 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     public TextView tv_geburtsdatum, tv_pflichtfeld, tv_aktuellesDatum, tv_alter;
     public Button btn_waehleGeburtstag;
     private int alter;
-    RadioButton rb_beschwerden_ja, rb_beschwerden_nein, rb_medikamente_ja, rb_medikamente_nein,
-            rb_notizen_ja, rb_notizen_nein;
     EditText et_beschwerden, et_medikamente, et_notizen, et_vorname, et_nachname;
 
     private AgeCalculation ausgewahltesDatum = null;
@@ -50,11 +47,11 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         et_beschwerden = (EditText) findViewById(R.id.et_beschwerden);
         et_medikamente = (EditText) findViewById(R.id.et_medikamente);
         et_notizen = (EditText) findViewById(R.id.et_notizen);
-        tv_aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
+
         tv_geburtsdatum = (TextView) findViewById(R.id.tv_geburtsdatum);
         tv_alter = (TextView) findViewById(R.id.tv_alter);
         tv_pflichtfeld = (TextView) findViewById(R.id.tv_pflichtfeld);
-
+        tv_aktuellesDatum = (TextView) findViewById(R.id.tv_aktuellesDatum);
         ausgewahltesDatum = new AgeCalculation();
         tv_aktuellesDatum.setText(ausgewahltesDatum.getCurrentDate());
 
@@ -102,6 +99,37 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
             @Override
             public void onClick(View v) {
 
+
+                String st_et_vorname = et_vorname.getText().toString();
+                String st_et_nachname = et_nachname.getText().toString();
+                String st_tv_geburtsdatum = tv_geburtsdatum.getText().toString();
+                String st_et_beschwerden = et_beschwerden.getText().toString();
+                String st_et_medikamente = et_medikamente.getText().toString();
+                String st_et_notizen = et_notizen.getText().toString();
+
+
+                if(TextUtils.isEmpty(st_et_nachname)) {
+                    et_nachname.setError(getString(R.string.tv_error));
+                    return;
+                }
+                if(TextUtils.isEmpty(st_et_vorname)) {
+                    et_vorname.setError(getString(R.string.tv_error));
+                    return;
+                }
+                if(TextUtils.isEmpty(st_tv_geburtsdatum)) {
+                    tv_geburtsdatum.setError(getText(R.string.tv_error));
+                    return;
+                }
+                if(TextUtils.isEmpty(st_et_beschwerden)) {
+                    et_beschwerden.setError(getString(R.string.tv_error));
+                    return;
+                }
+                if(TextUtils.isEmpty(st_et_medikamente)) {
+                    et_medikamente.setError(getString(R.string.tv_error));
+                    return;
+                }
+
+
                 try {
                 android.app.AlertDialog.Builder alertDialogAbfrage = new
                         android.app.AlertDialog.Builder(ActivityPatientenHinzufuegen.this);
@@ -144,6 +172,8 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     }
 
     public void speichereDatensatz(){
+
+        String st_erstelldatum = tv_aktuellesDatum.getText().toString();
         String st_et_vorname = et_vorname.getText().toString();
         String st_et_nachname = et_nachname.getText().toString();
         String st_tv_geburtsdatum = tv_geburtsdatum.getText().toString();
@@ -151,30 +181,8 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         String st_et_medikamente = et_medikamente.getText().toString();
         String st_et_notizen = et_notizen.getText().toString();
 
-
-        if(TextUtils.isEmpty(st_et_nachname)) {
-            et_nachname.setError(getString(R.string.tv_error));
-            return;
-        }
-        if(TextUtils.isEmpty(st_et_vorname)) {
-            et_vorname.setError(getString(R.string.tv_error));
-            return;
-        }
-        if(TextUtils.isEmpty(st_tv_geburtsdatum)) {
-            tv_geburtsdatum.setError(getText(R.string.tv_error));
-            return;
-        }
-        if(TextUtils.isEmpty(st_et_beschwerden)) {
-            et_beschwerden.setError(getString(R.string.tv_error));
-            return;
-        }
-        if(TextUtils.isEmpty(st_et_medikamente)) {
-            et_medikamente.setError(getString(R.string.tv_error));
-            return;
-        }
-
         datenquelle.erstellePatientenakte(st_et_vorname, st_et_nachname, st_tv_geburtsdatum,
-                st_et_beschwerden, st_et_medikamente, st_et_notizen);
+                st_et_beschwerden, st_et_medikamente, st_et_notizen, st_erstelldatum);
 
         InputMethodManager inputMethodManager;
         inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);

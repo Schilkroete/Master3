@@ -26,7 +26,8 @@ public class PatientenakteDatenquelle {
             PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM,
             PatientenakteDatenbankManager.SPALTE_BESCHWERDEN,
             PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE,
-            PatientenakteDatenbankManager.SPALTE_NOTIZEN
+            PatientenakteDatenbankManager.SPALTE_NOTIZEN,
+            PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM
     };
 
     /**
@@ -61,7 +62,7 @@ public class PatientenakteDatenquelle {
     // Mit dieser Methode können Datensätze in die Tabelle der SQLite Datenbank eingefügt werden
     public Patientenakte erstellePatientenakte(
             String vorname, String nachname, String geburtsdatum,
-            String beschreibung, String medikamente, String notizen){
+            String beschreibung, String medikamente, String notizen, String datumZeit){
         // Hier wird ein ContentValue-Objekt erzeigt
         ContentValues alleWerte = new ContentValues();
         alleWerte.put(PatientenakteDatenbankManager.SPALTE_VORNAME, vorname);
@@ -70,6 +71,7 @@ public class PatientenakteDatenquelle {
         alleWerte.put(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN, beschreibung);
         alleWerte.put(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE, medikamente);
         alleWerte.put(PatientenakteDatenbankManager.SPALTE_NOTIZEN, notizen);
+        alleWerte.put(PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM, datumZeit);
 
          /*
           * Hier werden die Werte mit Hilfe des ContentValues-Objekt in die Tabelle eingetragen.
@@ -110,8 +112,9 @@ public class PatientenakteDatenquelle {
         int idNachname = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_NACHNAME);
         int idGeburtsdatum = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM);
         int idBeschwerden = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN);
-        int idNotizen = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_NOTIZEN);
         int idMedikamente = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE);
+        int idNotizen = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_NOTIZEN);
+        int idErstelldatum= cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM);
 
         long id = cursor.getLong(idIndex);
         String vorname = cursor.getString(idVorname);
@@ -120,9 +123,10 @@ public class PatientenakteDatenquelle {
         String medikamente = cursor.getString(idMedikamente);
         String beschwerden = cursor.getString(idBeschwerden);
         String notizen = cursor.getString(idNotizen);
+        String erstelldatum = cursor.getString(idErstelldatum);
 
         Patientenakte patientenakte = new Patientenakte(vorname, nachname, geburtsdatum, medikamente,
-                beschwerden, notizen, id);
+                beschwerden, notizen, erstelldatum, id);
 
         return patientenakte;
     }
@@ -170,4 +174,6 @@ public class PatientenakteDatenquelle {
         cursor.close();
         return patientenakteListe;
     }
+
+
 }

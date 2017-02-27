@@ -12,7 +12,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
 
     private static final String TAG = PatientenakteDatenbankManager.class.getSimpleName();
 
-    private static final String DB_NAME = "ergoTest4.db";
+    private static final String DB_NAME = "ergoTest7TIMESTAMP.db";
     public static final int DB_VERSION = 1;
 
     public static final String TABELLEN_NAME = "patientenakte";
@@ -23,6 +23,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
     public static final String SPALTE_BESCHWERDEN = "beschwerden";
     public static final String SPALTE_MEDIKAMENTE = "medikamente";
     public static final String SPALTE_NOTIZEN = "notizen";
+    public static final String SPALTE_ERSTELLDATUM = "erstelldatum";
 
     public static final String SQL_CREATE =
             "CREATE TABLE " +
@@ -33,7 +34,8 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
                     SPALTE_GEBURTSDATUM + " DATETIME NOT NULL, " +
                     SPALTE_BESCHWERDEN + " TEXT NOT NULL, " +
                     SPALTE_MEDIKAMENTE + " TEXT NOT NULL, " +
-                    SPALTE_NOTIZEN + " TEXT NOT NULL);";
+                    SPALTE_NOTIZEN + " TEXT NOT NULL, " +
+                    SPALTE_ERSTELLDATUM + " TEXT NOT NULL);";
 
 
     public PatientenakteDatenbankManager(Context context) {

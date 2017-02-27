@@ -15,10 +15,11 @@ public class Patientenakte {
     private String beschwerden;
     private String medikamente;
     private String notizen;
+    private String datumZeit;
     private long id;
 
     public Patientenakte(String vorname, String nachname, String geburtsdatum, String beschwerden,
-                         String medikamente, String notizen, long id) {
+                         String medikamente, String notizen, String datumZeit, long id) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.geburtsdatum = geburtsdatum;
@@ -26,8 +27,10 @@ public class Patientenakte {
         this.medikamente = medikamente;
         this.notizen = notizen;
         this.id = id;
+        this.datumZeit = datumZeit;
     }
-    /* public String gibVorname() {
+
+    public String gibVorname() {
         return vorname;
     }
     public void setzeVorname(String vorname) {
@@ -67,7 +70,14 @@ public class Patientenakte {
     }
     public void setzeNotizen(String notizen) {
         this.notizen = notizen;
-    }*/
+    }
+
+    public String datumZeit() {
+        return datumZeit;
+    }
+    public void datumZeit(String datumZeit) {
+        this.datumZeit = datumZeit;
+    }
 
     public long getId() {
         return id;
@@ -79,8 +89,9 @@ public class Patientenakte {
 
     @Override
     public String toString(){
-        String ausgabe = vorname + " " + nachname + " " + geburtsdatum + " " + beschwerden + " " +
-                medikamente + " " + notizen;
+        String ausgabe = "Name: " + vorname + " " + nachname + "\nGeburtsdatum: " + geburtsdatum + "\nbeschwerden: " + beschwerden + "\nMedikamente: " +
+                medikamente + "\nNotizen: " + notizen + "\nDatum und Zeit: " + datumZeit;
+
         return ausgabe;
     }
 }
