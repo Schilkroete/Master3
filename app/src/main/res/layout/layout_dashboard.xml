@@ -13,6 +13,20 @@
     android:background="@drawable/bg"
     tools:context="schilkroete.master3.ActivityDashboard">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <Button
+            android:id="@+id/btn_ausloggen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ausloggen"
+            android:padding="12dp"
+            android:background="@color/colorAusloggen"
+            />
+    </RelativeLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

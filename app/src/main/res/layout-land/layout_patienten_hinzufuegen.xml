@@ -7,6 +7,20 @@
     android:focusableInTouchMode="true"
     android:background="@drawable/bg">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right">
+        <Button
+            android:id="@+id/btn_ausloggen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_ausloggen"
+            android:padding="12dp"
+            android:background="@color/colorAusloggen"
+            />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -77,15 +91,6 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"/>
             </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tv_aktuellesDatum"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/tv_aktuellesDatum"
-                android:ems="10"
-                android:textSize="24sp"
-                android:visibility="invisible"/>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -235,7 +240,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center">
@@ -244,6 +249,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tv_daten_in_datenbank_speichern"/>
-    </LinearLayout>
+        <TextView
+            android:id="@+id/tv_aktuellesDatum"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"
+            android:gravity="left"/>
+    </RelativeLayout>
 
 </LinearLayout>

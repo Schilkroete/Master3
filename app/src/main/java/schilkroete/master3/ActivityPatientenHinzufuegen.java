@@ -183,7 +183,6 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         }
     }
 
-
     public void loescheContent(){
         et_vorname.setText("");
         et_nachname.setText("");
