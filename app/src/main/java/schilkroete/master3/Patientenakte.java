@@ -89,8 +89,9 @@ public class Patientenakte {
 
     @Override
     public String toString(){
-        String ausgabe = "Name: " + vorname + " " + nachname + "\nGeburtsdatum: " + geburtsdatum + "\nbeschwerden: " + beschwerden + "\nMedikamente: " +
-                medikamente + "\nNotizen: " + notizen + "\nDatum und Zeit: " + datumZeit;
+        String ausgabe = "Name: " + vorname + " " + nachname + "Geburtsdatum: " + geburtsdatum +
+                "\nMedikamente: " + beschwerden + "Beschwerden: " + medikamente + "Notizen: " +
+                notizen + "Erstelldatum: " + datumZeit;
 
         return ausgabe;
     }

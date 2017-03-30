@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_dashboard"
+    android:id="@+id/layout_dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,13 +10,12 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/bg"
     tools:context="schilkroete.master3.ActivityDashboard">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right">
+        android:gravity="center">
         <Button
             android:id="@+id/btn_ausloggen"
             android:layout_width="wrap_content"
@@ -27,69 +26,81 @@
             />
     </RelativeLayout>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
-
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_patienten_hinzufuegen"
-                android:src="@drawable/add"
-                android:background="?android:selectableItemBackground"
-                android:layout_gravity="center"/>
+                <Button
+                    android:id="@+id/btn_patienten_hinzufuegen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Akte erstellen"
+                    android:background="?android:selectableItemBackground"
+                    android:drawableTop="@drawable/add" />
         </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
 
-            <ImageButton
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btn_patientensuche"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_patientensuche"
-                android:src="@drawable/change"
                 android:background="?android:selectableItemBackground"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="Akte suchen"
+                android:drawableTop="@drawable/change"/>
         </FrameLayout>
     </LinearLayout>
 
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1">
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_uebungen"
-                android:src="@drawable/training"
                 android:background="?android:selectableItemBackground"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="Übungen"
+                android:drawableTop="@drawable/training"/>
         </FrameLayout>
+
+
         <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1">
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/btn_einstellungen"
-                android:src="@drawable/settings"
                 android:background="?android:selectableItemBackground"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="Einstellungen"
+                android:drawableTop="@drawable/settings"/>
         </FrameLayout>
     </LinearLayout>
+
 
 </LinearLayout>

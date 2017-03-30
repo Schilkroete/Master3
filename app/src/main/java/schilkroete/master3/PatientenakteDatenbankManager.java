@@ -35,7 +35,7 @@ public class PatientenakteDatenbankManager extends SQLiteOpenHelper {
                     SPALTE_BESCHWERDEN + " TEXT NOT NULL, " +
                     SPALTE_MEDIKAMENTE + " TEXT NOT NULL, " +
                     SPALTE_NOTIZEN + " TEXT NOT NULL, " +
-                    SPALTE_ERSTELLDATUM + " TEXT NOT NULL);";
+                    SPALTE_ERSTELLDATUM + " DATETIME DEFAULT CURRENT_TIMESTAMP);";
 
 
     public PatientenakteDatenbankManager(Context context) {

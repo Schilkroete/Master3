@@ -11,6 +11,7 @@
     <string name="tv_vorname">Vorname:<font fgcolor="red">*</font></string>
     <string name="tv_nachname">Nachname:<font fgcolor="red">*</font></string>
     <string name="tv_waehleGeburtstag">+</string>
+    <string name="tv_geburtstag">Geburtstag</string>
     <string name="tv_pflichtfeld"><font fgcolor="red">*</font></string>
     <string name="tv_alter">Alter:</string>
     <string name="tv_rg_beschwerden">Beschwerden eingeben?<font fgcolor="red">*</font></string>
@@ -26,7 +27,7 @@
     // EditText
     <string name="et_medikamente">Medikamente:<font fgcolor="red">*</font></string>
     <string name="et_beschwerden">Beschwerden:<font fgcolor="red">*</font></string>
-    <string name="et_notizen">Notizen:</string>
+    <string name="et_notizen">Notizen:<font fgcolor="red">*</font></string>
 
     // Buttons
     <string name="btn_new_pt">Patienten hinzufügen</string>
@@ -47,6 +48,4 @@
     <string name="cab_delete">Einträge löschen</string>
     <string name="action_settings">Settings</string>
 
-
-    <string name="thumbnail">thumbnail</string>
 </resources>

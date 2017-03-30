@@ -55,7 +55,7 @@ public class PatientenakteDatenquelle {
      */
     public void close() {
         dbHelfer.close();
-        Log.e(TAG, "Datenbank mit Hilfe des DbHelpers geschlossen.");
+        Log.e(TAG, "Datenbank mit Hilfe des DbHelfers geschlossen.");
     }
 
 

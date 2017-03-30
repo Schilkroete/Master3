@@ -1,5 +1,18 @@
 package schilkroete.master3;
 
+/*
+ TODO Design ändern, einfacher Aufbau (Liste)
+ TODO BG schlicht (weiß)
+ TODO DialogFenster für diverse Rollen beim klicken auf ActivityPatientenHinzufügen
+ TODO Dashboard, Icons mit Beschriftung
+
+ TODO DatePicker Fullscreen
+ TODO Errormeldungen größer anzeigen lassen
+ TODO Geburtsdatumswahl manuell und digital erstellen
+
+ TODO Tastatur ausblenden nach Eingabe im EditText
+ */
+
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,7 +26,12 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Der Anwender gibt Patientendaten in die entsprechenden Felder und speichert diese anschliessend
@@ -28,7 +46,10 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     private int alter;
     EditText et_beschwerden, et_medikamente, et_notizen, et_vorname, et_nachname;
 
+    RadioButton rb_notizen_ja, rb_notizen_nein;
+
     private AgeCalculation ausgewahltesDatum = null;
+
     static final int DATE_START_DIALOG_ID = 0;
     public int startJahrImDialog = 1975;
     public int startMonatImDialog = 6;
@@ -36,12 +57,16 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
 
     private PatientenakteDatenquelle datenquelle;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_patienten_hinzufuegen);
 
+        erzeugeRelevanteFelder();
+        aktiviereHinzufuegenButton();
+    }
+
+    public void erzeugeRelevanteFelder (){
         et_vorname = (EditText) findViewById(R.id.et_vorname);
         et_nachname = (EditText) findViewById(R.id.et_nachname);
         et_beschwerden = (EditText) findViewById(R.id.et_beschwerden);
@@ -55,23 +80,22 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         ausgewahltesDatum = new AgeCalculation();
         tv_aktuellesDatum.setText(ausgewahltesDatum.getCurrentDate());
 
+        rb_notizen_ja = (RadioButton) findViewById(R.id.rb_notizen_ja);
+        rb_notizen_nein = (RadioButton) findViewById(R.id.rb_notizen_nein);
+
         btn_waehleGeburtstag = (Button) findViewById(R.id.btn_waehleGeburtstag);
         btn_waehleGeburtstag.setOnClickListener(this);
 
         datenquelle = new PatientenakteDatenquelle(this);
-
-        aktiviereHinzufuegenButton();
     }
 
-
-    public void zeigeNotizen(View view){
+    public void zeigeNotizenfeld(View view){
         et_notizen.setVisibility(View.VISIBLE);
     }
 
-    public void versteckeNotizen(View view){
+    public void versteckeNotizenfeld(View view){
         et_notizen.setVisibility(View.INVISIBLE);
     }
-
 
     @Override
     protected void onResume() {
@@ -80,14 +104,12 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         datenquelle.open();
     }
 
-
     @Override
     protected void onPause() {
         super.onPause();
         Log.e(TAG, "Die Datenquelle wird geschlossen.");
         datenquelle.close();
     }
-
 
     /**
      * Was passiert wenn der Speicher-Button gedrückt wurde
@@ -99,14 +121,12 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
             @Override
             public void onClick(View v) {
 
-
                 String st_et_vorname = et_vorname.getText().toString();
                 String st_et_nachname = et_nachname.getText().toString();
                 String st_tv_geburtsdatum = tv_geburtsdatum.getText().toString();
                 String st_et_beschwerden = et_beschwerden.getText().toString();
                 String st_et_medikamente = et_medikamente.getText().toString();
                 String st_et_notizen = et_notizen.getText().toString();
-
 
                 if(TextUtils.isEmpty(st_et_nachname)) {
                     et_nachname.setError(getString(R.string.tv_error));
@@ -128,8 +148,15 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                     et_medikamente.setError(getString(R.string.tv_error));
                     return;
                 }
-
-
+                if(rb_notizen_ja.isChecked() == true){
+                    /*  rb_notizen_ja.setChecked(false);*/
+                    rb_notizen_nein.setChecked(true);
+                    et_notizen.setVisibility(View.INVISIBLE);
+                }
+                if(et_notizen.getVisibility() == View.VISIBLE && TextUtils.isEmpty(st_et_notizen)) {
+                    et_notizen.setError(getString(R.string.tv_error));
+                    return;
+                }
                 try {
                 android.app.AlertDialog.Builder alertDialogAbfrage = new
                         android.app.AlertDialog.Builder(ActivityPatientenHinzufuegen.this);
@@ -168,12 +195,10 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 }
             }
         });
-
     }
 
     public void speichereDatensatz(){
-
-        String st_erstelldatum = tv_aktuellesDatum.getText().toString();
+        String st_erstelldatum = gibAktuellesDatum();
         String st_et_vorname = et_vorname.getText().toString();
         String st_et_nachname = et_nachname.getText().toString();
         String st_tv_geburtsdatum = tv_geburtsdatum.getText().toString();
@@ -194,14 +219,16 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     public void loescheContent(){
         et_vorname.setText("");
         et_nachname.setText("");
-        tv_geburtsdatum.setText("");
+        tv_geburtsdatum.setText("Geburtsdatum");
         et_beschwerden.setText("");
         et_medikamente.setText("");
         et_notizen.setText("");
         tv_alter.setText("");
         tv_pflichtfeld.setVisibility(View.VISIBLE);
-    }
 
+        rb_notizen_ja = (RadioButton) findViewById(R.id.rb_notizen_ja);
+        rb_notizen_nein = (RadioButton) findViewById(R.id.rb_notizen_nein);
+    }
 
     /**
      * Erstellt ein Dialogfenster, welches uns einen Kalender anzeigt
@@ -212,11 +239,10 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     protected Dialog onCreateDialog(int id){
         switch (id){
             case DATE_START_DIALOG_ID:
-                return new DatePickerDialog(this, waehleGeburtsdatum, startJahrImDialog, startMonatImDialog, startTagImDialog);
+                return new DatePickerDialog(this, android.R.style.Theme_Wallpaper_NoTitleBar_Fullscreen, waehleGeburtsdatum, startJahrImDialog, startMonatImDialog, startTagImDialog);
         }
         return null;
     }
-
 
     /**
      * Öffnet das Dialogfenster beim Klicken des Plus-Buttons
@@ -233,23 +259,22 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
         }
     }
 
-
     /**
      * Nach Berechnung des Alter wird das Geburtdatum und das Alter für den Anwender sichtbar angezeit
      */
     private DatePickerDialog.OnDateSetListener waehleGeburtsdatum = new DatePickerDialog.OnDateSetListener () {
-        public void onDateSet(DatePicker view, int selectedYear, int selectedMonth, int selectedDay) {
-            ausgewahltesDatum.setDateOfBirth(selectedYear, selectedMonth, selectedDay);
+        public void onDateSet(DatePicker view, int startJahrImDialog, int startMonatImDialog, int startTagImDialog) {
+            ausgewahltesDatum.setDateOfBirth(startJahrImDialog, startMonatImDialog, startTagImDialog);
             berechneAlter();
-            tv_geburtsdatum.setText(selectedDay + "." + (startMonatImDialog + 1) + "." +
+            tv_geburtsdatum.setText(startTagImDialog + "." + (startMonatImDialog + 1) + "." +
                     startJahrImDialog);
             tv_alter.setText(ausgewahltesDatum.getResult());
+
             if (tv_geburtsdatum != null){
                 tv_pflichtfeld.setVisibility(View.INVISIBLE);
             }
         }
     };
-
 
     /**
      * Berechung des Alters über die ausgewählen Werte aus dem Dialogfenster
@@ -263,5 +288,12 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
 
         alter = ausgewahltesDatum.getResultInt();
         //Log.e(TAG, "Resultat = " + alter + " Jahre");
+    }
+
+    public String gibAktuellesDatum(){
+        SimpleDateFormat datumsformatierung = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date datum = new Date();
+        return datumsformatierung.format(datum);
     }
 }
