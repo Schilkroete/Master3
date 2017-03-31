@@ -91,7 +91,7 @@ public class Patientenakte {
     public String toString(){
         String ausgabe = "Name: " + vorname + " " + nachname + "Geburtsdatum: " + geburtsdatum +
                 "\nMedikamente: " + beschwerden + "Beschwerden: " + medikamente + "Notizen: " +
-                notizen + "Erstelldatum: " + datumZeit;
+                notizen + "\nErstelldatum: " + datumZeit;
 
         return ausgabe;
     }

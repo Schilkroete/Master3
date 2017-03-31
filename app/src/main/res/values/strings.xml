@@ -8,17 +8,24 @@
     <string name="lable_sucheUebung">Suche Übung</string>
 
     // TextViews
-    <string name="tv_vorname">Vorname:<font fgcolor="red">*</font></string>
-    <string name="tv_nachname">Nachname:<font fgcolor="red">*</font></string>
+    <string name="tv_id">ID</string>
+    <string name="tv_alter">Alter</string>
     <string name="tv_waehleGeburtstag">+</string>
+    <string name="tv_vorname">Vorname</string>
+    <string name="tv_nachname">Nachname</string>
     <string name="tv_geburtstag">Geburtstag</string>
-    <string name="tv_pflichtfeld"><font fgcolor="red">*</font></string>
-    <string name="tv_alter">Alter:</string>
-    <string name="tv_rg_beschwerden">Beschwerden eingeben?<font fgcolor="red">*</font></string>
-    <string name="tv_rg_medikamente">Medikamente eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_medikamente">Medikamente</string>
+    <string name="tv_beschwerden">Beschwerden</string>
+    <string name="tv_notizen">Notizen</string>
     <string name="tv_rg_notizen">Notizen eingeben?</string>
-    <string name="tv_error">Das Feld darf nicht leer sein.</string>
     <string name="tv_aktuellesDatum">Aktuelles Datum:</string>
+
+    <string name="tv_pflichtfeld"><font fgcolor="red">*</font></string>
+    <string name="tv_vorname_pflicht">Vorname:<font fgcolor="red">*</font></string>
+    <string name="tv_nachname_pflicht">Nachname:<font fgcolor="red">*</font></string>
+    <string name="tv_beschwerden_pflicht">Beschwerden eingeben?<font fgcolor="red">*</font></string>
+    <string name="tv_medikamente_pflicht">Medikamente eingeben?<font fgcolor="red">*</font></string>
+
     <string name="tv_daten_in_datenbank_speichern">Daten in Datenbank speichern</string>
     <string name="tv_daten_aus_datenbank_speichern">Daten aus Datenbank laden</string>
     <string name="tv_datenbank_ist_leer">Datenbank ist leer</string>
@@ -40,11 +47,13 @@
     <string name="rb_ja">Ja</string>
     <string name="rb_nein">Nein</string>
 
+    //Error
+    <string name="error_leeres_feld">Das Feld darf nicht leer sein.</string>
+
+
 
 
     <string name="button_add_product">+</string>
-    <string name="editText_hint_quantity">Anzahl*</string>
-    <string name="editText_hint_product">Produkt*</string>
     <string name="cab_delete">Einträge löschen</string>
     <string name="action_settings">Settings</string>
 

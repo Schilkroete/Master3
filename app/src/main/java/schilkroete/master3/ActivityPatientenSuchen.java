@@ -74,15 +74,18 @@ public class ActivityPatientenSuchen extends Activity {
             public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
 
             }
+
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 getMenuInflater().inflate(R.menu.menu_contextual_action_bar, menu);
                 return true;
             }
+
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 return false;
             }
+
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
                 switch (item.getItemId()) {

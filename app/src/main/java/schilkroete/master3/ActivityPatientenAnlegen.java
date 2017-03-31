@@ -37,13 +37,13 @@ import java.util.Locale;
  * Der Anwender gibt Patientendaten in die entsprechenden Felder und speichert diese anschliessend
  * in eine Datenbank
  */
-public class ActivityPatientenHinzufuegen extends Activity implements View.OnClickListener {
+public class ActivityPatientenAnlegen extends Activity implements View.OnClickListener {
 
-    private static final String TAG = ActivityPatientenHinzufuegen.class.getSimpleName();
+    private static final String TAG = ActivityPatientenAnlegen.class.getSimpleName();
 
     public TextView tv_geburtsdatum, tv_pflichtfeld, tv_aktuellesDatum, tv_alter;
     public Button btn_waehleGeburtstag;
-    private int alter;
+    public int alter;
     EditText et_beschwerden, et_medikamente, et_notizen, et_vorname, et_nachname;
 
     RadioButton rb_notizen_ja, rb_notizen_nein;
@@ -60,7 +60,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_patienten_hinzufuegen);
+        setContentView(R.layout.layout_patienten_anlegen);
 
         erzeugeRelevanteFelder();
         aktiviereHinzufuegenButton();
@@ -129,37 +129,32 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                 String st_et_notizen = et_notizen.getText().toString();
 
                 if(TextUtils.isEmpty(st_et_nachname)) {
-                    et_nachname.setError(getString(R.string.tv_error));
+                    et_nachname.setError(getString(R.string.error_leeres_feld));
                     return;
                 }
                 if(TextUtils.isEmpty(st_et_vorname)) {
-                    et_vorname.setError(getString(R.string.tv_error));
+                    et_vorname.setError(getString(R.string.error_leeres_feld));
                     return;
                 }
                 if(TextUtils.isEmpty(st_tv_geburtsdatum)) {
-                    tv_geburtsdatum.setError(getText(R.string.tv_error));
+                    tv_geburtsdatum.setError(getText(R.string.error_leeres_feld));
                     return;
                 }
                 if(TextUtils.isEmpty(st_et_beschwerden)) {
-                    et_beschwerden.setError(getString(R.string.tv_error));
+                    et_beschwerden.setError(getString(R.string.error_leeres_feld));
                     return;
                 }
                 if(TextUtils.isEmpty(st_et_medikamente)) {
-                    et_medikamente.setError(getString(R.string.tv_error));
+                    et_medikamente.setError(getString(R.string.error_leeres_feld));
                     return;
                 }
-                if(rb_notizen_ja.isChecked() == true){
-                    /*  rb_notizen_ja.setChecked(false);*/
-                    rb_notizen_nein.setChecked(true);
-                    et_notizen.setVisibility(View.INVISIBLE);
-                }
                 if(et_notizen.getVisibility() == View.VISIBLE && TextUtils.isEmpty(st_et_notizen)) {
-                    et_notizen.setError(getString(R.string.tv_error));
+                    et_notizen.setError(getString(R.string.error_leeres_feld));
                     return;
                 }
                 try {
                 android.app.AlertDialog.Builder alertDialogAbfrage = new
-                        android.app.AlertDialog.Builder(ActivityPatientenHinzufuegen.this);
+                        android.app.AlertDialog.Builder(ActivityPatientenAnlegen.this);
 
                 alertDialogAbfrage
                         .setIcon(android.R.drawable.ic_input_add)
@@ -170,7 +165,7 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
                             public void onClick(DialogInterface dialog, int id) {
                                 speichereDatensatz();
                                 loescheContent();
-                                Intent ptSuchen = new Intent(ActivityPatientenHinzufuegen.this,
+                                Intent ptSuchen = new Intent(ActivityPatientenAnlegen.this,
                                         ActivityPatientenSuchen.class);
                                 startActivity(ptSuchen);
                             }
@@ -228,6 +223,10 @@ public class ActivityPatientenHinzufuegen extends Activity implements View.OnCli
 
         rb_notizen_ja = (RadioButton) findViewById(R.id.rb_notizen_ja);
         rb_notizen_nein = (RadioButton) findViewById(R.id.rb_notizen_nein);
+        if(rb_notizen_ja.isChecked() == true){
+            rb_notizen_nein.setChecked(true);
+            et_notizen.setVisibility(View.INVISIBLE);
+        }
     }
 
     /**

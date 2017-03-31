@@ -1,0 +1,178 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="8dp"
+    tools:context="schilkroete.master3.ActivityPatientenAnlegen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
+        <TextView
+            android:id="@+id/tv_aktuellesDatum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_aktuellesDatum"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"/>
+        <TextClock
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textClock2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textAppearance="@style/TextAppearance.AppCompat"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="6dp">
+        <EditText
+            android:id="@+id/et_nachname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/tv_nachname"
+            android:ems="10"
+            android:textSize="32sp"
+            android:inputType="textPersonName"
+            android:layout_margin="6dp"/>
+        <EditText
+            android:id="@+id/et_vorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/tv_vorname"
+            android:ems="10"
+            android:textSize="32sp"
+            android:inputType="textPersonName"
+            android:layout_margin="6dp"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btn_waehleGeburtstag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="6dp"
+                android:text="@string/tv_waehleGeburtstag"
+                android:textSize="32sp" />
+            <TextView
+                android:id="@+id/tv_pflichtfeld"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/btn_waehleGeburtstag"
+                android:layout_toEndOf="@+id/btn_waehleGeburtstag"
+                android:layout_toRightOf="@+id/btn_waehleGeburtstag"
+                android:text="@string/tv_pflichtfeld"
+                android:textColor="@android:color/holo_red_dark"
+                android:textSize="32sp" />
+            <TextView
+                android:id="@+id/tv_geburtsdatum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_pflichtfeld"
+                android:layout_margin="6dp"
+                android:layout_toEndOf="@+id/tv_pflichtfeld"
+                android:layout_toRightOf="@+id/tv_pflichtfeld"
+                android:ems="7"
+                android:text="@string/tv_geburtstag"
+                android:textSize="32sp" />
+            <TextView
+                android:id="@+id/tv_alter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:textSize="32sp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/et_beschwerden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:hint="@string/et_beschwerden"
+            android:ems="10"
+            android:textSize="32sp"/>
+
+        <EditText
+            android:id="@+id/et_medikamente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_medikamente"
+            android:ems="10"
+            android:textSize="32sp" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rl_notizen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp">
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_rb_notizen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/tv_rg_notizen"
+                        android:textSize="24sp" />
+                    <RadioButton
+                        android:id="@+id/rb_notizen_ja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:onClick="zeigeNotizenfeld"
+                        android:text="@string/rb_ja"
+                        android:textSize="24sp" />
+                    <RadioButton
+                        android:id="@+id/rb_notizen_nein"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:onClick="versteckeNotizenfeld"
+                        android:text="@string/rb_nein"
+                        android:textSize="24sp" />
+                </RadioGroup>
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/et_notizen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:hint="@string/et_notizen"
+            android:textSize="32sp"
+            android:ems="10"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_speichern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_daten_in_datenbank_speichern"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

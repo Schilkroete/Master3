@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4sp"
+    android:orientation="vertical"
+    android:padding="4sp">
+
+    <TextView
+        android:id="@+id/tv_nachname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_nachname" />
+
+    <TextView
+        android:id="@+id/tv_vorname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_nachname"
+        android:layout_toRightOf="@+id/tv_nachname"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_vorname" />
+
+    <TextView
+        android:id="@+id/tv_geburtsdatum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_vorname"
+        android:layout_toRightOf="@+id/tv_vorname"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_geburtstag" />
+
+    <TextView
+        android:id="@+id/tv_beschwerden"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_geburtsdatum"
+        android:layout_toRightOf="@+id/tv_geburtsdatum"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_beschwerden" />
+
+    <TextView
+        android:id="@+id/tv_medikamente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_beschwerden"
+        android:layout_toRightOf="@+id/tv_beschwerden"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_medikamente" />
+
+    <TextView
+        android:id="@+id/tv_notizen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/tv_medikamente"
+        android:layout_toRightOf="@+id/tv_medikamente"
+        android:padding="4dp"
+        android:layout_weight="1"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:text="@string/tv_notizen" />
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview_patientenakte"
+        android:layout_below="@+id/tv_nachname"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </ListView>
+
+
+</RelativeLayout>

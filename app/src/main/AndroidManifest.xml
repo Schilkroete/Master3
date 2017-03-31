@@ -13,8 +13,7 @@
 
 
         <activity
-            android:name=".ActivityDashboard"
-            >
+            android:name=".ActivityDashboard">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"/>
@@ -24,9 +23,8 @@
         </activity>
 
         <activity
-            android:name=".ActivityPatientenHinzufuegen"
-            android:label="@string/lable_hinzufuegenPt"
-            android:screenOrientation="userLandscape">
+            android:name=".ActivityPatientenAnlegen"
+            android:label="@string/lable_hinzufuegenPt">
         </activity>
 
         <activity

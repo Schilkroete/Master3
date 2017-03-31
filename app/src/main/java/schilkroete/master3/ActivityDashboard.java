@@ -1,5 +1,7 @@
 package schilkroete.master3;
 
+// TODO Toast beim löschen ausgeben
+
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -39,7 +41,7 @@ public class ActivityDashboard extends Activity {
                                 public void onClick(DialogInterface dialog, int id) {
                                     //Log.e(TAG, "Button \"Patienten hinzufügen\" wurde geklickt");
                                     Intent ptHinzufuegen = new Intent(ActivityDashboard.this,
-                                            ActivityPatientenHinzufuegen.class);
+                                            ActivityPatientenAnlegen.class);
                                     startActivity(ptHinzufuegen);
                                 }
                             })
@@ -48,7 +50,7 @@ public class ActivityDashboard extends Activity {
                                         public void onClick(DialogInterface dialog, int id) {
                                             //Log.e(TAG, "Button \"Patienten hinzufügen\" wurde geklickt");
                                             Intent ptHinzufuegen = new Intent(ActivityDashboard.this,
-                                                    ActivityPatientenHinzufuegen.class);
+                                                    ActivityPatientenAnlegen.class);
                                             startActivity(ptHinzufuegen);
                                         }
                                     })
@@ -57,7 +59,7 @@ public class ActivityDashboard extends Activity {
                                         public void onClick(DialogInterface dialog, int id) {
                                             //Log.e(TAG, "Button \"Patienten hinzufügen\" wurde geklickt");
                                             Intent ptHinzufuegen = new Intent(ActivityDashboard.this,
-                                                    ActivityPatientenHinzufuegen.class);
+                                                    ActivityPatientenAnlegen.class);
                                             startActivity(ptHinzufuegen);
                                         }
                                     });
