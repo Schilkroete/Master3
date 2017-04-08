@@ -21,30 +21,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/btn_ausloggen"
-            android:padding="12dp"
+            android:padding="4dp"
             android:background="@color/colorAusloggen"
-            />
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
     </RelativeLayout>
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1">
-                <Button
-                    android:id="@+id/btn_patienten_hinzufuegen"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Akte erstellen"
-                    android:background="?android:selectableItemBackground"
-                    android:drawableTop="@drawable/add" />
+
+            <Button
+                android:id="@+id/btn_patienten_hinzufuegen"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="?android:selectableItemBackground"
+                android:drawableTop="@drawable/add"
+                android:text="Akte erstellen" />
         </FrameLayout>
 
 
@@ -53,36 +57,39 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1">
+
             <Button
                 android:id="@+id/btn_patientensuche"
-                android:layout_width="wrap_content"
+                android:layout_width="110dp"
                 android:layout_height="wrap_content"
-                android:background="?android:selectableItemBackground"
                 android:layout_gravity="center"
-                android:text="Akte suchen"
-                android:drawableTop="@drawable/change"/>
+                android:background="?android:selectableItemBackground"
+                android:drawableTop="@drawable/change"
+                android:text="Akte suchen" />
         </FrameLayout>
     </LinearLayout>
 
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/btn_uebungen"
-                android:background="?android:selectableItemBackground"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Übungen"
-                android:drawableTop="@drawable/training"/>
+                android:background="?android:selectableItemBackground"
+                android:drawableTop="@drawable/training"
+                android:text="Übungen" />
         </FrameLayout>
 
 
@@ -91,14 +98,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1">
+
             <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/btn_einstellungen"
-                android:background="?android:selectableItemBackground"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Einstellungen"
-                android:drawableTop="@drawable/settings"/>
+                android:background="?android:selectableItemBackground"
+                android:drawableTop="@drawable/settings"
+                android:text="Einstellungen" />
         </FrameLayout>
     </LinearLayout>
 
