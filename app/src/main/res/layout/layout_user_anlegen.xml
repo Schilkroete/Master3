@@ -1,0 +1,66 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:padding="8dp"
+    tools:context="schilkroete.healthy.activitys.ActivityPatientenAnlegen">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="6dp"
+        android:id="@+id/linearLayout">
+        <EditText
+            android:id="@+id/et_nachname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_nachname_pflicht"
+            android:ems="10"
+            android:textSize="32sp"
+            android:inputType="textPersonName"
+            android:layout_margin="6dp"/>
+        <EditText
+            android:id="@+id/et_vorname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_vorname_pflicht"
+            android:ems="10"
+            android:textSize="32sp"
+            android:inputType="textPersonName"
+            android:layout_margin="6dp"/>
+        <EditText
+            android:id="@+id/et_passwort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/et_password_pflicht"
+            android:ems="10"
+            android:textSize="32sp"
+            android:inputType="textPassword"
+            android:layout_margin="6dp"/>
+        <Spinner
+            android:id="@+id/spinner_user"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:drawSelectorOnTop="true"
+            android:paddingRight="@dimen/spacing_small" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_speichern"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_daten_in_datenbank_speichern"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

@@ -1,4 +1,4 @@
-package schilkroete.master3;
+package schilkroete.healthy.datenbankzugriffe;
 
 /**
  * Instanzen dieser Klassen können die Daten eines SQLite-Datensatzes aufnehmen

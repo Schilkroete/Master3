@@ -1,4 +1,4 @@
-package schilkroete.master3;
+package schilkroete.healthy.activitys;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,12 +12,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import java.util.List;
 
+import schilkroete.healthy.datenbankzugriffe.Patientenakte;
+import schilkroete.healthy.datenbankzugriffe.DatenquellePatientenakte;
+import schilkroete.healthy.R;
+
 
 public class ActivityPatientenSuchen extends Activity {
 
     public static final String TAG = ActivityPatientenSuchen.class.getSimpleName();
 
-    private PatientenakteDatenquelle datenbank;
+    private DatenquellePatientenakte datenquelleAkte;
 
 
     @Override
@@ -26,7 +30,7 @@ public class ActivityPatientenSuchen extends Activity {
         setContentView(R.layout.layout_patientensuche);
 
         Log.e(TAG, "Das Datenquellen-Objekt wird angelegt.");
-        datenbank = new PatientenakteDatenquelle(this);
+        datenquelleAkte = new DatenquellePatientenakte(this);
 
         initializeContextualActionBar();
     }
@@ -37,7 +41,7 @@ public class ActivityPatientenSuchen extends Activity {
         super.onResume();
 
         Log.e(TAG, "Die Datenquelle wird geöffnet.");
-        datenbank.open();
+        datenquelleAkte.open();
 
         Log.e(TAG, "Folgende Einträge sind in der Datenbank vorhanden:");
         zeigeAlleEintraege();
@@ -49,12 +53,12 @@ public class ActivityPatientenSuchen extends Activity {
         super.onPause();
 
         Log.e(TAG, "Die Datenquelle wird geschlossen.");
-        datenbank.close();
+        datenquelleAkte.close();
     }
 
 
     private void zeigeAlleEintraege() {
-        List<Patientenakte> patientenakteListe = datenbank.gibAllePatientenakten();
+        List<Patientenakte> patientenakteListe = datenquelleAkte.gibAllePatientenakten();
         ArrayAdapter<Patientenakte> patientenakteArrayAdapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_list_item_multiple_choice,
@@ -101,7 +105,7 @@ public class ActivityPatientenSuchen extends Activity {
                                         patientenakteListView.getItemAtPosition(postitionInListView);
                                 Log.e(TAG, "Position im ListView: " + postitionInListView
                                         + " Inhalt: " + patientenakte.toString());
-                                datenbank.loeschePatientenakte(patientenakte);
+                                datenquelleAkte.loeschePatientenakte(patientenakte);
                             }
                         }
                         zeigeAlleEintraege();

@@ -4,10 +4,11 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:padding="8dp"
-    tools:context="schilkroete.master3.ActivityPatientenAnlegen">
+    tools:context="schilkroete.healthy.activitys.ActivityPatientenAnlegen">
 
     <RelativeLayout
         android:layout_width="match_parent"

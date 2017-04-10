@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="schilkroete.master3">
+    package="schilkroete.healthy">
 
 
     <application
@@ -13,7 +13,7 @@
 
 
         <activity
-            android:name=".ActivityDashboard">
+            android:name="schilkroete.healthy.activitys.ActivityLogIn">
             <intent-filter>
                 <action
                     android:name="android.intent.action.MAIN"/>
@@ -23,15 +23,29 @@
         </activity>
 
         <activity
-            android:name=".ActivityPatientenAnlegen"
-            android:label="@string/lable_hinzufuegenPt">
+            android:name="schilkroete.healthy.activitys.ActivityDashboard">
         </activity>
 
         <activity
-            android:name=".ActivityPatientenSuchen"
-            android:label="@string/lable_hinzufuegenPt">
-
+            android:name="schilkroete.healthy.activitys.ActivityPatientenAnlegen">
         </activity>
+
+        <activity
+            android:name="schilkroete.healthy.activitys.ActivityPatientenSuchen">
+        </activity>
+
+        <activity
+            android:name="schilkroete.healthy.activitys.ActivitySettings">
+        </activity>
+
+        <activity
+            android:name=".activitys.ActivityUserAnlegen">
+        </activity>
+
+        <activity
+            android:name=".activitys.ActivityUserSuchen">
+        </activity>
+
 
 
     </application>

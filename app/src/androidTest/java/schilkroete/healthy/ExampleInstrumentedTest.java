@@ -1,4 +1,4 @@
-package schilkroete.master3;
+package schilkroete.healthy;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

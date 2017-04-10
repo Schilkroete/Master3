@@ -1,43 +1,44 @@
-package schilkroete.master3;
+package schilkroete.healthy.datenbankzugriffe;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import schilkroete.healthy.datenbanken.DatenbankPatientenakte;
+
 /**
  * Regelt alle Datenbankzugriffe, ob lesend oder schreibend
  */
-public class PatientenakteDatenquelle {
+public class DatenquellePatientenakte {
 
-    private static final String TAG = PatientenakteDatenquelle.class.getSimpleName();
+    private static final String TAG = DatenquellePatientenakte.class.getSimpleName();
 
-    private SQLiteDatabase datenbank;
-    private PatientenakteDatenbankManager dbHelfer;
+    private SQLiteDatabase datenbankAkte;
+    private DatenbankPatientenakte dbHelferAkte;
 
     private String[] spaltenArray = {
-            PatientenakteDatenbankManager.SPALTE_ID,
-            PatientenakteDatenbankManager.SPALTE_VORNAME,
-            PatientenakteDatenbankManager.SPALTE_NACHNAME,
-            PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM,
-            PatientenakteDatenbankManager.SPALTE_BESCHWERDEN,
-            PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE,
-            PatientenakteDatenbankManager.SPALTE_NOTIZEN,
-            PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM
+            DatenbankPatientenakte.SPALTE_ID_USER,
+            DatenbankPatientenakte.SPALTE_VORNAME,
+            DatenbankPatientenakte.SPALTE_NACHNAME,
+            DatenbankPatientenakte.SPALTE_PASSWORT,
+            DatenbankPatientenakte.SPALTE_ROLLE,
+            DatenbankPatientenakte.SPALTE_MEDIKAMENTE,
+            DatenbankPatientenakte.SPALTE_NOTIZEN,
+            DatenbankPatientenakte.SPALTE_ERSTELLDATUM
     };
 
     /**
-     * Erzeugt eine Instanz von der PatientenakteDatenbankManager-Klasse
+     * Erzeugt eine Instanz von der DatenbankRollen-Klasse
      * Context Übergabe - Umgebung in der die App ausgeführt wird
      */
-    public PatientenakteDatenquelle(Context context){
-        Log.e(TAG, "Unsere Datenquelle erzeugt jetzt den dbHelfer.");
-        dbHelfer = new PatientenakteDatenbankManager(context);
+    public DatenquellePatientenakte(Context context){
+        Log.e(TAG, "Unsere Datenquelle erzeugt jetzt den dbHelferAkte.");
+        dbHelferAkte = new DatenbankPatientenakte(context);
     }
 
 
@@ -46,8 +47,8 @@ public class PatientenakteDatenquelle {
      */
     public void open() {
         Log.e(TAG, "Eine Referenz auf die Datenbank wird jetzt angefragt.");
-        datenbank = dbHelfer.getWritableDatabase();
-        Log.e(TAG, "Datenbank-Referenz erhalten. Pfad zur Datenbank: " + datenbank.getPath());
+        datenbankAkte = dbHelferAkte.getWritableDatabase();
+        Log.e(TAG, "Datenbank-Referenz erhalten. Pfad zur Datenbank: " + datenbankAkte.getPath());
     }
 
 
@@ -55,7 +56,7 @@ public class PatientenakteDatenquelle {
      * Verbindung zur Datenbank wird hier geschlossen
      */
     public void close() {
-        dbHelfer.close();
+        dbHelferAkte.close();
         Log.e(TAG, "Datenbank mit Hilfe des DbHelfers geschlossen.");
     }
 
@@ -66,13 +67,13 @@ public class PatientenakteDatenquelle {
             String beschreibung, String medikamente, String notizen, String datumZeit){
         // Hier wird ein ContentValue-Objekt erzeigt
         ContentValues alleWerte = new ContentValues();
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_VORNAME, vorname);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_NACHNAME, nachname);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM, geburtsdatum);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN, beschreibung);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE, medikamente);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_NOTIZEN, notizen);
-        alleWerte.put(PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM, datumZeit);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_VORNAME, vorname);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_NACHNAME, nachname);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_PASSWORT, geburtsdatum);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_ROLLE, beschreibung);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_MEDIKAMENTE, medikamente);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_NOTIZEN, notizen);
+        alleWerte.put(DatenbankPatientenakte.SPALTE_ERSTELLDATUM, datumZeit);
 
          /*
           * Hier werden die Werte mit Hilfe des ContentValues-Objekt in die Tabelle eingetragen.
@@ -81,15 +82,15 @@ public class PatientenakteDatenquelle {
           * ContentValue-Objekt. Wenn das Einfuegen erfolgreich war, dann erhalten wir die ID des
           * erstelllten Datensatzes zurueck.
           */
-        long einfuegenId = datenbank.insert(PatientenakteDatenbankManager.TABELLEN_NAME, null, alleWerte);
+        long einfuegenId = datenbankAkte.insert(DatenbankPatientenakte.TABELLEN_NAME, null, alleWerte);
         /*
          * Wir lesen die eingegebenen Werte zur Kontrolle, mit dieser Anweisung, aus
          * Als Argument uebergeben wir den Namen der Tabelle, den Spaleten-Array (die Suchanfrage
          * soll die Werte fuer alle Spalten zurueckliefern)
          * und den Such-String mit dem wir nach dem eingefuegten Datensatz suchen.
          */
-        Cursor cursor = datenbank.query(PatientenakteDatenbankManager.TABELLEN_NAME, spaltenArray,
-                PatientenakteDatenbankManager.SPALTE_ID + "=" + einfuegenId, null, null, null,null);
+        Cursor cursor = datenbankAkte.query(DatenbankPatientenakte.TABELLEN_NAME, spaltenArray,
+                DatenbankPatientenakte.SPALTE_ID_USER + "=" + einfuegenId, null, null, null,null);
         /*
          * Mit dieser Anweisung bewegen wir den Cursor an die Position seines ersten Datensatzes.
          * Anschließend wird die cursorToShoppingMemo() Methode aufgerufen und wandelt dadurch den
@@ -108,14 +109,14 @@ public class PatientenakteDatenquelle {
      * @return
      */
     private Patientenakte cursorZuPatientenakte(Cursor cursor){
-        int idIndex = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_ID);
-        int idVorname = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_VORNAME);
-        int idNachname = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_NACHNAME);
-        int idGeburtsdatum = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_GEBURTSDATUM);
-        int idBeschwerden = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_BESCHWERDEN);
-        int idMedikamente = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_MEDIKAMENTE);
-        int idNotizen = cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_NOTIZEN);
-        int idErstelldatum= cursor.getColumnIndex(PatientenakteDatenbankManager.SPALTE_ERSTELLDATUM);
+        int idIndex = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_ID_USER);
+        int idVorname = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_VORNAME);
+        int idNachname = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_NACHNAME);
+        int idGeburtsdatum = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_PASSWORT);
+        int idBeschwerden = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_ROLLE);
+        int idMedikamente = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_MEDIKAMENTE);
+        int idNotizen = cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_NOTIZEN);
+        int idErstelldatum= cursor.getColumnIndex(DatenbankPatientenakte.SPALTE_ERSTELLDATUM);
 
         long id = cursor.getLong(idIndex);
         String vorname = cursor.getString(idVorname);
@@ -137,8 +138,8 @@ public class PatientenakteDatenquelle {
         // Anschließend führen wir die Lösch-Operation auf dem SQLiteDatenbank-Objekt aus.
         long id = patientenakte.getId();
 
-        datenbank.delete(PatientenakteDatenbankManager.TABELLEN_NAME,
-                PatientenakteDatenbankManager.SPALTE_ID + "=" + id, null);
+        datenbankAkte.delete(DatenbankPatientenakte.TABELLEN_NAME,
+                DatenbankPatientenakte.SPALTE_ID_USER + "=" + id, null);
 
         Log.e(TAG, "Eintrag gelöscht ID: " + id + " Inhalt: " + patientenakte.toString());
     }
@@ -157,7 +158,7 @@ public class PatientenakteDatenquelle {
          * d.h. auch der Such-String ist null, wodurch alle in der Tabelle existierenden Datensätze
          * als Ergebnis zurückgeliefert werden.
          */
-        Cursor cursor = datenbank.query(PatientenakteDatenbankManager.TABELLEN_NAME,
+        Cursor cursor = datenbankAkte.query(DatenbankPatientenakte.TABELLEN_NAME,
                 spaltenArray, null, null, null, null, null);
         cursor.moveToFirst();
         Patientenakte patientenakte;

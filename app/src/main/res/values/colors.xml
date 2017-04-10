@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#68EFAD</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#49c086</color>
+    <color name="colorPrimaryDark">#e5ffde</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorAusloggen">#FF0000</color>
+
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#727272</color>
+    <color name="chrome_grey">#F2F2F2</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>

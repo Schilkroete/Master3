@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string-array name="signup_user">
+
+        <item>Bitte wählen Sie eine Rolle aus</item>
+        <item>Admin</item>
+        <item>Arzt</item>
+        <item>Ergotherapeut</item>
+        <item>Physiotherapeut</item>
+
+    </string-array>
+
+</resources>

@@ -1,14 +1,15 @@
-package schilkroete.master3;
+package schilkroete.healthy.activitys;
 
 // TODO Toast beim löschen ausgeben
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import schilkroete.healthy.R;
 
 public class ActivityDashboard extends Activity {
 
@@ -19,16 +20,21 @@ public class ActivityDashboard extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_dashboard);
-        //Log.e(TAG, "onCreate() aufgerufen");
+        Log.e(TAG, "onCreate() aufgerufen");
 
 
-        //Log.e(TAG, "Button \"Patienten hinzufügen\" wurde erstellt/angelegt");
-        btn = (Button) findViewById(R.id.btn_patienten_hinzufuegen);
+        Log.e(TAG, "Button \"Patienten anlegen\" wurde erstellt/angelegt");
+        btn = (Button) findViewById(R.id.btn_patienten_anlegen);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View n) {
 
-                try {
+                Log.e(TAG, "Button \"Patienten anlegen\" wurde geklickt");
+                Intent ptanlegen = new Intent(ActivityDashboard.this,
+                        ActivityPatientenAnlegen.class);
+                startActivity(ptanlegen);
+
+                /*try {
                     android.app.AlertDialog.Builder alertDialogAbfrage = new
                             android.app.AlertDialog.Builder(ActivityDashboard.this);
 
@@ -67,7 +73,7 @@ public class ActivityDashboard extends Activity {
                     alertDialog.show();
                 } catch (Exception ex) {
                     Log.e(TAG, "AlertDialog Fehler");
-                }
+                }*/
 
 
 
@@ -75,12 +81,12 @@ public class ActivityDashboard extends Activity {
         });
 
 
-        //Log.e(TAG, "Button \"Patientensuche\" wurde erstellt/angelegt");
+        Log.e(TAG, "Button \"Patientensuche\" wurde erstellt/angelegt");
         btn = (Button) findViewById(R.id.btn_patientensuche);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View n) {
-                //Log.e(TAG, "Button \"Patientensuche\" wurde geklickt");
+                Log.e(TAG, "Button \"Patientensuche\" wurde geklickt");
                 Intent ptsuchen = new Intent(ActivityDashboard.this,
                         ActivityPatientenSuchen.class);
                 startActivity(ptsuchen);
@@ -98,19 +104,19 @@ public class ActivityDashboard extends Activity {
                         MainActivity.class);
                 startActivity(uebungen);
             }
-        });
+        });*/
 
 
-       //Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
+       Log.e(TAG, "Button \"Einstellungen\" wurde erstellt/angelegt");
         btn = (Button) findViewById(R.id.btn_einstellungen);
         btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View n) {
-                //Log.e(TAG, "Button \"Einstellungen\" wurde geklickt");
+                Log.e(TAG, "Button \"Einstellungen\" wurde geklickt");
                 Intent einstellungen = new Intent(ActivityDashboard.this,
-                        ActivityDashboard.class);
+                        ActivitySettings.class);
                 startActivity(einstellungen);
             }
-        });*/
+        });
     }
 }

@@ -1,14 +1,15 @@
-package schilkroete.master3;
+package schilkroete.healthy.activitys;
 
 /*
  TODO Design ändern, einfacher Aufbau (Liste)
  TODO BG schlicht (weiß)
- TODO DialogFenster für diverse Rollen beim klicken auf ActivityPatientenHinzufügen
  TODO Dashboard, Icons mit Beschriftung
+ TODO Geburtsdatumswahl manuell und digital erstellen
 
+ TODO DialogFenster für diverse Rollen beim klicken auf ActivityPatientenHinzufügen, wenn kein LogIn vorhanden
+ TODO Vor- und Nachname mit einem Pflichtpfeld versehen
  TODO DatePicker Fullscreen
  TODO Errormeldungen größer anzeigen lassen
- TODO Geburtsdatumswahl manuell und digital erstellen
 
  TODO Tastatur ausblenden nach Eingabe im EditText
  */
@@ -33,6 +34,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import schilkroete.healthy.AgeCalculation;
+import schilkroete.healthy.datenbankzugriffe.DatenquellePatientenakte;
+import schilkroete.healthy.R;
+
 /**
  * Der Anwender gibt Patientendaten in die entsprechenden Felder und speichert diese anschliessend
  * in eine Datenbank
@@ -40,12 +45,10 @@ import java.util.Locale;
 public class ActivityPatientenAnlegen extends Activity implements View.OnClickListener {
 
     private static final String TAG = ActivityPatientenAnlegen.class.getSimpleName();
-
     public TextView tv_geburtsdatum, tv_pflichtfeld, tv_aktuellesDatum, tv_alter;
     public Button btn_waehleGeburtstag;
     public int alter;
     EditText et_beschwerden, et_medikamente, et_notizen, et_vorname, et_nachname;
-
     RadioButton rb_notizen_ja, rb_notizen_nein;
 
     private AgeCalculation ausgewahltesDatum = null;
@@ -55,7 +58,7 @@ public class ActivityPatientenAnlegen extends Activity implements View.OnClickLi
     public int startMonatImDialog = 6;
     public int startTagImDialog = 15;
 
-    private PatientenakteDatenquelle datenquelle;
+    private DatenquellePatientenakte datenquelleAkte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +89,7 @@ public class ActivityPatientenAnlegen extends Activity implements View.OnClickLi
         btn_waehleGeburtstag = (Button) findViewById(R.id.btn_waehleGeburtstag);
         btn_waehleGeburtstag.setOnClickListener(this);
 
-        datenquelle = new PatientenakteDatenquelle(this);
+        datenquelleAkte = new DatenquellePatientenakte(this);
     }
 
     public void zeigeNotizenfeld(View view){
@@ -101,14 +104,14 @@ public class ActivityPatientenAnlegen extends Activity implements View.OnClickLi
     protected void onResume() {
         super.onResume();
         Log.e(TAG, "Die Datenquelle wird geöffnet.");
-        datenquelle.open();
+        datenquelleAkte.open();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         Log.e(TAG, "Die Datenquelle wird geschlossen.");
-        datenquelle.close();
+        datenquelleAkte.close();
     }
 
     /**
@@ -201,7 +204,7 @@ public class ActivityPatientenAnlegen extends Activity implements View.OnClickLi
         String st_et_medikamente = et_medikamente.getText().toString();
         String st_et_notizen = et_notizen.getText().toString();
 
-        datenquelle.erstellePatientenakte(st_et_vorname, st_et_nachname, st_tv_geburtsdatum,
+        datenquelleAkte.erstellePatientenakte(st_et_vorname, st_et_nachname, st_tv_geburtsdatum,
                 st_et_beschwerden, st_et_medikamente, st_et_notizen, st_erstelldatum);
 
         InputMethodManager inputMethodManager;

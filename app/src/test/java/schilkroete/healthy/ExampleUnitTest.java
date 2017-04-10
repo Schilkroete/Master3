@@ -1,4 +1,4 @@
-package schilkroete.master3;
+package schilkroete.healthy;
 
 import org.junit.Test;
 
